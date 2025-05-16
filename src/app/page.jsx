@@ -4,7 +4,7 @@ import ParallaxHero from '@/components/common/parallax-hero';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ArrowRight, LayoutList, Shield, BotMessageSquare, Zap, Users, MessageCircleQuestion } from 'lucide-react';
-import { mockMatches, mockPlayers } from '@/lib/mock-data';
+import { mockMatches, mockPlayers } from '@/lib/mock-data.js';
 import Image from 'next/image';
 import PlayersCarousel from '@/components/players/players-carousel';
 import AnimatedStatsSection from '@/components/common/animated-stats-section';

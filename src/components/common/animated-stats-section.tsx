@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect, type FC, useRef } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils.js'; // Explicitly import .js
 
 interface StatItemProps {
   targetDisplayValue: number;
@@ -28,7 +28,9 @@ const StatItem: FC<StatItemProps> = ({
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(entry.target); // Animate only once
+          if (itemRef.current) { // Check if itemRef.current is not null
+            observer.unobserve(itemRef.current); // Animate only once
+          }
         }
       },
       {

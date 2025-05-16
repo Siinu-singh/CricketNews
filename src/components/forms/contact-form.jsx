@@ -11,8 +11,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Loader2, Mail, User, Type, MessageSquare, Send } from 'lucide-react';
-import { sendContactMessageAction } from '@/app/actions'; // type ContactFormInput removed
-import { useToast } from '@/hooks/use-toast';
+import { sendContactMessageAction } from '@/app/actions.js'; // type ContactFormInput removed
+import { useToast } from '@/hooks/use-toast.js';
 
 const contactFormSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters."),
