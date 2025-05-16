@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 // import type { FC } from 'react'; // FC type import removed
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils.js';
 
 // interface StatItemProps { // Interface removed
 //   targetDisplayValue: number;

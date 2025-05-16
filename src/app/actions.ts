@@ -1,16 +1,11 @@
-// src/app/actions.ts
+// src/app/actions.js
 "use server";
 
-import { summarizeArticle as summarizeArticleFlow, type SummarizeArticleInput, type SummarizeArticleOutput } from '@/ai/flows/summarize-news-articles';
+import { summarizeArticle as summarizeArticleFlow } from '@/ai/flows/summarize-news-articles.js';
 import { z } from 'zod';
 
-interface SummarizeActionResult {
-  success: boolean;
-  data?: SummarizeArticleOutput;
-  error?: string;
-}
 
-export async function summarizeArticleAction(input: SummarizeArticleInput): Promise<SummarizeActionResult> {
+export async function summarizeArticleAction(input) {
   try {
     console.log("Summarize action called with input length:", input.articleContent.length);
     const result = await summarizeArticleFlow(input);
@@ -31,15 +26,8 @@ const ContactFormSchema = z.object({
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 });
 
-export type ContactFormInput = z.infer<typeof ContactFormSchema>;
 
-interface ContactFormResult {
-  success: boolean;
-  message: string;
-  error?: string; // Optional: more detailed error info
-}
-
-export async function sendContactMessageAction(input: ContactFormInput): Promise<ContactFormResult> {
+export async function sendContactMessageAction(input) {
   try {
     // Validate input with Zod schema - though react-hook-form does this client-side,
     // it's good practice for server actions.

@@ -1,361 +1,60 @@
+// src/app/actions.js
+"use server";
 
-import type { Match, Team, Player } from '@/types';
+import { summarizeArticle as summarizeArticleFlow } from '@/ai/flows/summarize-news-articles.js';
+import { z } from 'zod';
 
-export const mockPlayers: Player[] = [
-  {
-    id: 'player1',
-    name: 'Virat Kohli',
-    photoUrl: 'https://media.gettyimages.com/id/2200264212/photo/dubai-united-arab-emirates-virat-kohli-of-india-poses-for-a-portrait-during-the-icc-champions.jpg?s=612x612&w=0&k=20&c=00gfEvDRZZMmIEtiL36hFmCDk8goSRaJto-wzohYm1g=',
-    dataAiHint: 'Virat Kohli portrait',
-    role: 'Batsman',
-    nationality: 'Indian',
-    battingStyle: 'Right-handed',
-    stats: { matches: 250, runs: 12000, average: 59.07, strikeRate: 93.01, highestScore: '183' },
-    bio: 'One of the greatest batsmen of all time, known for his consistency and chasing abilities.'
-  },
-  {
-    id: 'player2',
-    name: 'Babar Azam',
-    photoUrl: 'https://placehold.co/300x450.png',
-    dataAiHint: 'player portrait',
-    role: 'Batsman',
-    nationality: 'Pakistani',
-    battingStyle: 'Right-handed',
-    stats: { matches: 100, runs: 5000, average: 58.50, strikeRate: 88.70, highestScore: '158' },
-    bio: 'A top-order batsman from Pakistan, known for his elegant strokeplay and consistency across formats.'
-  },
-  {
-    id: 'player3',
-    name: 'Jasprit Bumrah',
-    photoUrl: 'https://placehold.co/300x450.png',
-    dataAiHint: 'player portrait',
-    role: 'Bowler',
-    nationality: 'Indian',
-    bowlingStyle: 'Right-arm fast',
-    stats: { matches: 150, runs: 500, wickets: 250, average: 22.5, economyRate: 4.5, bestBowling: '6/19' },
-    bio: 'A premier fast bowler known for his unorthodox action and lethal yorkers.'
-  },
-  {
-    id: 'player4',
-    name: 'Shaheen Afridi',
-    photoUrl: 'https://placehold.co/300x450.png',
-    dataAiHint: 'player portrait',
-    role: 'Bowler',
-    nationality: 'Pakistani',
-    bowlingStyle: 'Left-arm fast',
-    stats: { matches: 120, runs: 300, wickets: 200, average: 24.0, economyRate: 5.0, bestBowling: '5/32' },
-    bio: 'A tall left-arm fast bowler, known for his ability to swing the new ball and take early wickets.'
-  },
-  {
-    id: 'player5',
-    name: 'Ellyse Perry',
-    photoUrl: 'https://placehold.co/300x450.png',
-    dataAiHint: 'player portrait',
-    role: 'All-rounder',
-    nationality: 'Australian',
-    battingStyle: 'Right-handed',
-    bowlingStyle: 'Right-arm fast-medium',
-    stats: { matches: 200, runs: 6000, wickets: 300, average: 50.0, strikeRate: 80.0, economyRate: 4.0, highestScore: '213*', bestBowling: '7/22' },
-    bio: 'One of the greatest female cricketers, excelling in both batting and bowling.'
-  },
-];
 
-export const mockTeams: Team[] = [
-  {
-    id: 'team1',
-    name: 'India',
-    shortName: 'IND',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'India cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'India stadium',
-    players: [mockPlayers[0], mockPlayers[2]],
-    homeGround: 'Eden Gardens, Kolkata',
-    coach: 'Rahul Dravid'
-  },
-  {
-    id: 'team2',
-    name: 'Pakistan',
-    shortName: 'PAK',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'Pakistan cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'Pakistan fans',
-    players: [mockPlayers[1], mockPlayers[3]],
-    homeGround: 'Gaddafi Stadium, Lahore',
-    coach: 'Gary Kirsten'
-  },
-  {
-    id: 'team3',
-    name: 'Australia',
-    shortName: 'AUS',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'Australia cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'Australia stadium',
-    players: [mockPlayers[4]],
-    homeGround: 'Melbourne Cricket Ground',
-    coach: 'Andrew McDonald'
-  },
-  {
-    id: 'team4',
-    name: 'England',
-    shortName: 'ENG',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'England cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'England fans',
-    players: [],
-    homeGround: 'Lord\'s, London',
-    coach: 'Brendon McCullum'
-  },
-  {
-    id: 'team5',
-    name: 'South Africa',
-    shortName: 'SA',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'SouthAfrica cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'SouthAfrica stadium',
-    players: [],
-    homeGround: 'Newlands, Cape Town',
-    coach: 'Shukri Conrad'
-  },
-  {
-    id: 'team6',
-    name: 'New Zealand',
-    shortName: 'NZ',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'NewZealand cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'NewZealand fans',
-    players: [],
-    homeGround: 'Basin Reserve, Wellington',
-    coach: 'Gary Stead'
-  },
-  {
-    id: 'team7',
-    name: 'West Indies',
-    shortName: 'WI',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'WestIndies cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'WestIndies stadium',
-    players: [],
-    homeGround: 'Kensington Oval, Bridgetown',
-    coach: 'Daren Sammy'
-  },
-  {
-    id: 'team8',
-    name: 'Sri Lanka',
-    shortName: 'SL',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'SriLanka cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'SriLanka fans',
-    players: [],
-    homeGround: 'Galle International Stadium',
-    coach: 'Chris Silverwood'
-  },
-  {
-    id: 'team9',
-    name: 'Bangladesh',
-    shortName: 'BAN',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'Bangladesh cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'Bangladesh stadium',
-    players: [],
-    homeGround: 'Sher-e-Bangla National Stadium, Dhaka',
-    coach: 'Chandika Hathurusingha'
-  },
-  {
-    id: 'team10',
-    name: 'Afghanistan',
-    shortName: 'AFG',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'Afghanistan cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'Afghanistan fans',
-    players: [],
-    homeGround: 'Kabul International Cricket Stadium',
-    coach: 'Jonathan Trott'
-  },
-  {
-    id: 'team11',
-    name: 'Ireland',
-    shortName: 'IRE',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'Ireland cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'Ireland stadium',
-    players: [],
-    homeGround: 'Malahide Cricket Club Ground, Dublin',
-    coach: 'Heinrich Malan'
-  },
-  {
-    id: 'team12',
-    name: 'Zimbabwe',
-    shortName: 'ZIM',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'Zimbabwe cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'Zimbabwe fans',
-    players: [],
-    homeGround: 'Harare Sports Club',
-    coach: 'Dave Houghton'
-  },
-  {
-    id: 'team13',
-    name: 'Netherlands',
-    shortName: 'NED',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'Netherlands cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'Netherlands stadium',
-    players: [],
-    homeGround: 'VRA Cricket Ground, Amstelveen',
-    coach: 'Ryan Cook'
-  },
-  {
-    id: 'team14',
-    name: 'Scotland',
-    shortName: 'SCO',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'Scotland cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'Scotland fans',
-    players: [],
-    homeGround: 'The Grange Club, Edinburgh',
-    coach: 'Doug Watson'
-  },
-  {
-    id: 'team15',
-    name: 'United Arab Emirates',
-    shortName: 'UAE',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'UAE cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'UAE stadium',
-    players: [],
-    homeGround: 'Sheikh Zayed Stadium, Abu Dhabi',
-    coach: 'Lalchand Rajput'
-  },
-  {
-    id: 'team16',
-    name: 'Nepal',
-    shortName: 'NEP',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'Nepal cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'Nepal fans',
-    players: [],
-    homeGround: 'Tribhuvan University Ground, Kirtipur',
-    coach: 'Monty Desai'
-  },
-  {
-    id: 'team17',
-    name: 'Oman',
-    shortName: 'OMA',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'Oman cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'Oman stadium',
-    players: [],
-    homeGround: 'Al Amerat Cricket Ground, Muscat',
-    coach: 'Duleep Mendis'
-  },
-  {
-    id: 'team18',
-    name: 'United States',
-    shortName: 'USA',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'USA cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'USA fans',
-    players: [],
-    homeGround: 'Central Broward Park, Lauderhill',
-    coach: 'Stuart Law'
-  },
-  {
-    id: 'team19',
-    name: 'Canada',
-    shortName: 'CAN',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'Canada cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'Canada stadium',
-    players: [],
-    homeGround: 'Maple Leaf Cricket Club, King City',
-    coach: 'Pubudu Dassanayake'
-  },
-  {
-    id: 'team20',
-    name: 'Namibia',
-    shortName: 'NAM',
-    logoUrl: 'https://placehold.co/100x100.png',
-    dataAiHint: 'Namibia cricket',
-    bannerImageUrl: 'https://placehold.co/300x150.png',
-    bannerDataAiHint: 'Namibia fans',
-    players: [],
-    homeGround: 'Wanderers Cricket Ground, Windhoek',
-    coach: 'Pierre de Bruyn'
+export async function summarizeArticleAction(input) {
+  try {
+    console.log("Summarize action called with input length:", input.articleContent.length);
+    const result = await summarizeArticleFlow(input);
+    console.log("Summarize action result:", result);
+    return { success: true, data: result };
+  } catch (error) {
+    console.error("Error in summarizeArticleAction:", error);
+    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred during summarization.";
+    return { success: false, error: errorMessage };
   }
-];
+}
 
-export const mockMatches: Match[] = [
-  {
-    id: 'match1',
-    team1: 'India',
-    team1Score: '180/5',
-    team1Logo: mockTeams.find(t => t.shortName === 'IND')?.logoUrl,
-    team2: 'Pakistan',
-    team2Score: '175/7',
-    team2Logo: mockTeams.find(t => t.shortName === 'PAK')?.logoUrl,
-    status: 'Live',
-    date: 'Today',
-    time: '19:00 IST',
-    venue: 'Dubai International Stadium',
-    tournament: 'Asia Cup',
-    overs: '18.2'
-  },
-  {
-    id: 'match2',
-    team1: 'Australia',
-    team1Logo: mockTeams.find(t => t.shortName === 'AUS')?.logoUrl,
-    team2: 'England',
-    team2Logo: mockTeams.find(t => t.shortName === 'ENG')?.logoUrl,
-    status: 'Upcoming',
-    date: 'Tomorrow',
-    time: '14:00 GMT',
-    venue: 'Lord\'s, London',
-    tournament: 'The Ashes'
-  },
-  {
-    id: 'match3',
-    team1: 'India',
-    team1Score: '350/6',
-    team1Logo: mockTeams.find(t => t.shortName === 'IND')?.logoUrl,
-    team2: 'Australia',
-    team2Score: '348/9',
-    team2Logo: mockTeams.find(t => t.shortName === 'AUS')?.logoUrl,
-    status: 'Recent',
-    date: 'Yesterday',
-    venue: 'MCG, Melbourne',
-    tournament: 'Bilateral Series'
-  },
-  {
-    id: 'match4',
-    team1: 'Pakistan',
-    team1Logo: mockTeams.find(t => t.shortName === 'PAK')?.logoUrl,
-    team2: 'England',
-    team2Logo: mockTeams.find(t => t.shortName === 'ENG')?.logoUrl,
-    status: 'Upcoming',
-    date: 'Day After Tomorrow',
-    time: '10:00 PST',
-    venue: 'Karachi National Stadium',
-    tournament: 'Bilateral Series'
+// Schema for Contact Form
+const ContactFormSchema = z.object({
+  fullName: z.string().min(2, { message: "Full name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+});
+
+
+export async function sendContactMessageAction(input) {
+  try {
+    // Validate input with Zod schema - though react-hook-form does this client-side,
+    // it's good practice for server actions.
+    const validatedData = ContactFormSchema.parse(input);
+
+    // Simulate sending an email or saving to a database
+    console.log("Received contact form submission:");
+    console.log("Full Name:", validatedData.fullName);
+    console.log("Email:", validatedData.email);
+    console.log("Subject:", validatedData.subject);
+    console.log("Message:", validatedData.message);
+
+    // Simulate a delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // Simulate potential error
+    // if (validatedData.email.includes("test_error")) {
+    //   throw new Error("Simulated server error for contact form.");
+    // }
+
+    return { success: true, message: "Your message has been sent successfully! We'll get back to you soon." };
+  } catch (error) {
+    console.error("Error in sendContactMessageAction:", error);
+    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred while sending your message.";
+     if (error instanceof z.ZodError) {
+      return { success: false, message: "Validation failed.", error: JSON.stringify(error.errors) };
+    }
+    return { success: false, message: "Failed to send message.", error: errorMessage };
   }
-];
-
-    
+}

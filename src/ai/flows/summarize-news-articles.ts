@@ -1,49 +1,60 @@
-'use server';
+// src/app/actions.js
+"use server";
 
-/**
- * @fileOverview Summarizes cricket news articles into key bullet points.
- *
- * - summarizeArticle - A function that summarizes a news article.
- * - SummarizeArticleInput - The input type for the summarizeArticle function.
- * - SummarizeArticleOutput - The return type for the summarizeArticle function.
- */
+import { summarizeArticle as summarizeArticleFlow } from '@/ai/flows/summarize-news-articles.js';
+import { z } from 'zod';
 
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
 
-const SummarizeArticleInputSchema = z.object({
-  articleContent: z
-    .string()
-    .describe('The content of the cricket news article to summarize.'),
-});
-export type SummarizeArticleInput = z.infer<typeof SummarizeArticleInputSchema>;
-
-const SummarizeArticleOutputSchema = z.object({
-  summary: z
-    .string()
-    .describe('A summary of the cricket news article, presented in concise bullet points.'),
-});
-export type SummarizeArticleOutput = z.infer<typeof SummarizeArticleOutputSchema>;
-
-export async function summarizeArticle(input: SummarizeArticleInput): Promise<SummarizeArticleOutput> {
-  return summarizeArticleFlow(input);
+export async function summarizeArticleAction(input) {
+  try {
+    console.log("Summarize action called with input length:", input.articleContent.length);
+    const result = await summarizeArticleFlow(input);
+    console.log("Summarize action result:", result);
+    return { success: true, data: result };
+  } catch (error) {
+    console.error("Error in summarizeArticleAction:", error);
+    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred during summarization.";
+    return { success: false, error: errorMessage };
+  }
 }
 
-const summarizeArticlePrompt = ai.definePrompt({
-  name: 'summarizeArticlePrompt',
-  input: {schema: SummarizeArticleInputSchema},
-  output: {schema: SummarizeArticleOutputSchema},
-  prompt: `Summarize the following cricket news article into concise bullet points:\n\n{{{articleContent}}}`,
+// Schema for Contact Form
+const ContactFormSchema = z.object({
+  fullName: z.string().min(2, { message: "Full name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 });
 
-const summarizeArticleFlow = ai.defineFlow(
-  {
-    name: 'summarizeArticleFlow',
-    inputSchema: SummarizeArticleInputSchema,
-    outputSchema: SummarizeArticleOutputSchema,
-  },
-  async input => {
-    const {output} = await summarizeArticlePrompt(input);
-    return output!;
+
+export async function sendContactMessageAction(input) {
+  try {
+    // Validate input with Zod schema - though react-hook-form does this client-side,
+    // it's good practice for server actions.
+    const validatedData = ContactFormSchema.parse(input);
+
+    // Simulate sending an email or saving to a database
+    console.log("Received contact form submission:");
+    console.log("Full Name:", validatedData.fullName);
+    console.log("Email:", validatedData.email);
+    console.log("Subject:", validatedData.subject);
+    console.log("Message:", validatedData.message);
+
+    // Simulate a delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // Simulate potential error
+    // if (validatedData.email.includes("test_error")) {
+    //   throw new Error("Simulated server error for contact form.");
+    // }
+
+    return { success: true, message: "Your message has been sent successfully! We'll get back to you soon." };
+  } catch (error) {
+    console.error("Error in sendContactMessageAction:", error);
+    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred while sending your message.";
+     if (error instanceof z.ZodError) {
+      return { success: false, message: "Validation failed.", error: JSON.stringify(error.errors) };
+    }
+    return { success: false, message: "Failed to send message.", error: errorMessage };
   }
-);
+}
