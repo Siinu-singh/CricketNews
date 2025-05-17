@@ -110,16 +110,15 @@ const AnimatedStatsSection = ({ stats, backgroundText = "STATS" }) => { // FC re
           {backgroundText}
         </h2>
       </div>
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {stats.map((stat, index) => (
-            <StatItem
-              key={stat.label}
-              {...stat}
-              colorClass={themeColorClasses[index % themeColorClasses.length]}
-            />
-          ))}
-        </div>
+      {/* Removed the container div from here to allow the grid to use the page's main container */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {stats.map((stat, index) => (
+          <StatItem
+            key={stat.label}
+            {...stat}
+            colorClass={themeColorClasses[index % themeColorClasses.length]}
+          />
+        ))}
       </div>
     </section>
   );
