@@ -17,7 +17,7 @@ const navLinks = [
 ];
 
 // Custom SVG Cricket Logo
-const CricketLogo = ({ className }) => ( // Type annotation removed
+const CricketLogo = ({ className }) => ( 
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -34,13 +34,14 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full bg-transparent text-white">
       <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-center relative px-4 sm:px-6 lg:px-8">
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 pl-4 sm:pl-6 lg:pl-8">
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 pl-6 sm:pl-8 lg:pl-10"> {/* Adjusted padding to move button more right */}
           <Button
             asChild
             variant="destructive"
-            className="rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl transition-shadow"
+            className="rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl transition-shadow flex items-center" // Added flex items-center
           >
             <Link href="/matches#live">
+              <span className="inline-block w-2 h-2 bg-accent rounded-full mr-1.5 animate-pulse"></span> {/* Yellow dot added */}
               Live Score
             </Link>
           </Button>
