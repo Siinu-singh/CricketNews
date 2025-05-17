@@ -27,33 +27,45 @@ export default function HomePage() {
         minHeight="80vh"
         overlayOpacity={0.65}
       >
-        <div className="w-full container mx-auto px-4 flex items-center h-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-center">
+        <div className="w-full container mx-auto px-4 h-full relative"> {/* Added relative for positioning context */}
+          <Button
+            asChild
+            variant="destructive"
+            className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <Link href="/matches#live">
+              Live Score
+            </Link>
+          </Button>
+          
+          <div className="flex items-center h-full"> {/* This div centers the main hero text content vertically */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-center pt-16 sm:pt-0"> {/* Added padding-top for smaller screens to avoid overlap */}
 
-            {/* Left Content Block */}
-            <div className="text-center lg:text-left">
-              <div className="text-sm text-background/80 flex items-center justify-center lg:justify-start mb-3 animate-fade-in-down [animation-delay:0s]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-accent mr-1.5"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
-                <span>Your Premier Cricket Companion</span>
+              {/* Left Content Block */}
+              <div className="text-center lg:text-left">
+                <div className="text-sm text-background/80 flex items-center justify-center lg:justify-start mb-3 animate-fade-in-down [animation-delay:0s]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-accent mr-1.5"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
+                  <span>Your Premier Cricket Companion</span>
+                </div>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-background mb-6 leading-tight animate-fade-in-down [animation-delay:0.2s]">
+                  Live Scores.<br />
+                  Latest News.<br />
+                  <span className="text-accent">Your CricNow.</span>
+                </h1>
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-background mb-6 leading-tight animate-fade-in-down [animation-delay:0.2s]">
-                Live Scores.<br />
-                Latest News.<br />
-                <span className="text-accent">Your CricNow.</span>
-              </h1>
-            </div>
 
-            {/* Right Content Block (Description & Button) */}
-            <div className="text-center lg:text-left lg:pl-6 xl:pl-12">
-              <p className="text-lg sm:text-xl text-background/90 mb-8 max-w-md mx-auto lg:mx-0 animate-fade-in-up [animation-delay:0.4s]">
-                Your ultimate destination for live cricket scores, match schedules, team insights, and AI-powered news summaries.
-              </p>
-              <Button size="lg" asChild className="rounded-full px-10 py-3 text-lg font-semibold group shadow-lg hover:shadow-xl transition-shadow animate-fade-in-up [animation-delay:0.6s]">
-                <Link href="/matches">
-                  Explore Matches
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1.5" />
-                </Link>
-              </Button>
+              {/* Right Content Block (Description & Button) */}
+              <div className="text-center lg:text-left lg:pl-6 xl:pl-12">
+                <p className="text-lg sm:text-xl text-background/90 mb-8 max-w-md mx-auto lg:mx-0 animate-fade-in-up [animation-delay:0.4s]">
+                  Your ultimate destination for live cricket scores, match schedules, team insights, and AI-powered news summaries.
+                </p>
+                <Button size="lg" asChild className="rounded-full px-10 py-3 text-lg font-semibold group shadow-lg hover:shadow-xl transition-shadow animate-fade-in-up [animation-delay:0.6s]">
+                  <Link href="/matches">
+                    Explore Matches
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1.5" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
