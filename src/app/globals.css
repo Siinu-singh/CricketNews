@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -102,4 +103,32 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-primary;
+}
+
+@layer utilities {
+  .marquee-container {
+    @apply flex overflow-hidden w-full relative;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, theme('colors.background') 10%, theme('colors.background') 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, theme('colors.background') 10%, theme('colors.background') 90%, transparent 100%);
+  }
+
+  .marquee-content {
+    @apply flex flex-shrink-0;
+    animation: marquee 40s linear infinite;
+  }
+  
+  /* Ensure enough items or adjust animation duration for smooth effect */
+  /* Pause on hover is optional */
+  /* .marquee-content:hover { 
+    animation-play-state: paused;
+  } */
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%); /* Assumes content is duplicated once */
+    }
+  }
 }

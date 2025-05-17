@@ -356,3 +356,60 @@ export const mockMatches = [
   }
 ];
 
+export const mockTestimonials = [
+  {
+    id: 'testimonial1',
+    name: 'Priya Sharma',
+    avatarUrl: 'https://placehold.co/100x100.png',
+    dataAiHint: 'woman smiling',
+    rating: 5,
+    date: 'July 15, 2024',
+    source: 'CricNow App',
+    title: 'Best Cricket App Ever!',
+    text: 'CricNow has completely changed how I follow cricket. Live scores are super fast, and the AI news summaries are a game-changer!',
+  },
+  {
+    id: 'testimonial2',
+    name: 'Raj Patel',
+    avatarUrl: 'https://placehold.co/100x100.png',
+    dataAiHint: 'man glasses',
+    rating: 4,
+    date: 'July 10, 2024',
+    source: 'Google Play',
+    title: 'Great for Staying Updated',
+    text: 'Love the detailed player stats and team info. The interface is clean and easy to navigate. Sometimes the live scores lag a tiny bit, but overall excellent.',
+  },
+  {
+    id: 'testimonial3',
+    name: 'Aisha Khan',
+    avatarUrl: 'https://placehold.co/100x100.png',
+    dataAiHint: 'woman headscarf',
+    rating: 5,
+    date: 'June 28, 2024',
+    source: 'App Store',
+    title: 'Must-Have for Cricket Fans!',
+    text: "The AI news summary feature is brilliant for quick updates. I use it daily. The parallax hero sections are also visually stunning. Highly recommend!",
+  },
+  {
+    id: 'testimonial4',
+    name: 'Michael Lee',
+    avatarUrl: 'https://placehold.co/100x100.png',
+    dataAiHint: 'man casual',
+    rating: 5,
+    date: 'June 20, 2024',
+    source: 'ProductHunt',
+    title: 'Impressive Design & Features',
+    text: "The dark blue and green theme is very professional. Player profiles are comprehensive. The animated stats on the homepage are a nice touch!",
+  },
+  {
+    id: 'testimonial5',
+    name: 'Sarah Jones',
+    avatarUrl: 'https://placehold.co/100x100.png',
+    dataAiHint: 'woman athletic',
+    rating: 4,
+    date: 'May 15, 2024',
+    source: 'Twitter',
+    title: 'Solid Cricket Companion',
+    text: 'Been using CricNow for a month. The live match tracking is reliable, and the team pages are well-organized. Would love to see more historical data.',
+  }
+];

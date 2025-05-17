@@ -3,13 +3,15 @@ import Link from 'next/link';
 import ParallaxHero from '@/components/common/parallax-hero';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ArrowRight, LayoutList, Shield, BotMessageSquare, Zap, Users, MessageCircleQuestion, MailCheck } from 'lucide-react';
-import { mockMatches, mockPlayers } from '@/lib/mock-data.js';
+import { ArrowRight, LayoutList, Shield, BotMessageSquare, Zap, Users, MessageCircleQuestion, MailCheck, Quote } from 'lucide-react';
+import { mockMatches, mockPlayers, mockTestimonials } from '@/lib/mock-data.js';
 import Image from 'next/image';
 import PlayersCarousel from '@/components/players/players-carousel';
 import AnimatedStatsSection from '@/components/common/animated-stats-section';
 import ContactForm from '@/components/forms/contact-form';
-import NewsletterSubscribeForm from '@/components/forms/newsletter-subscribe-form'; // Import the new newsletter form
+import NewsletterSubscribeForm from '@/components/forms/newsletter-subscribe-form';
+import ScrollingTestimonials from '@/components/testimonials/scrolling-testimonials';
+
 
 export default function HomePage() {
   const liveMatch = mockMatches.find(match => match.status === 'Live') || mockMatches[0];
@@ -159,6 +161,20 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* What Our Fans Say Section */}
+      <section id="testimonials" aria-labelledby="testimonials-heading" className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 text-center">
+          <Quote className="h-12 w-12 text-primary mx-auto mb-4" />
+          <h2 id="testimonials-heading" className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            What Our Fans Say
+          </h2>
+          <p className="text-muted-foreground text-lg mb-12 max-w-2xl mx-auto">
+            Hear from cricket enthusiasts who love using CricNow to stay connected to the game.
+          </p>
+        </div>
+        <ScrollingTestimonials testimonials={mockTestimonials} />
       </section>
 
 
