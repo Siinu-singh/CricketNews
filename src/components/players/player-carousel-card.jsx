@@ -72,7 +72,12 @@ export default function PlayerCarouselCard({ player, style, className }) {
               </>
             )}
           </div>
-          <Button variant="outline" size="sm" asChild className="mt-3 w-full shrink-0">
+          <Button 
+            variant="outline" 
+            size="sm" 
+            asChild 
+            className="mt-3 w-full shrink-0 transition-transform duration-150 ease-in-out hover:scale-105"
+          >
             <Link href={`/players/${player.id}`}>View Full Profile</Link>
           </Button>
         </div>
