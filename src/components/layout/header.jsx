@@ -18,10 +18,10 @@ const navLinks = [
 
 // Custom SVG Cricket Logo
 const CricketLogo = ({ className }) => ( // Type annotation removed
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    viewBox="0 0 24 24" 
-    fill="currentColor" 
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
     className={className}
     aria-hidden="true"
   >
@@ -33,7 +33,19 @@ const CricketLogo = ({ className }) => ( // Type annotation removed
 export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full bg-transparent text-white">
-      <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-center relative px-4 sm:px-6 lg:px-8">
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 pl-4 sm:pl-6 lg:pl-8">
+          <Button
+            asChild
+            variant="destructive"
+            className="rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <Link href="/matches#live">
+              Live Score
+            </Link>
+          </Button>
+        </div>
+
         <nav className="flex items-center gap-4 bg-card text-card-foreground py-2 px-4 rounded-full border shadow-sm">
           <TooltipProvider delayDuration={100}>
             <Tooltip>
@@ -47,14 +59,14 @@ export default function Header() {
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
-          
+
           <div className="flex items-center gap-1">
             {navLinks.map((item) => (
-              <Button 
+              <Button
                 key={item.label}
-                variant="ghost" 
-                size="sm" 
-                asChild 
+                variant="ghost"
+                size="sm"
+                asChild
                 className="px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded-md transition-colors"
               >
                 <Link href={item.href}>

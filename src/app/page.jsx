@@ -27,19 +27,11 @@ export default function HomePage() {
         minHeight="80vh"
         overlayOpacity={0.65}
       >
-        <div className="w-full container mx-auto px-4 h-full relative"> {/* Added relative for positioning context */}
-          <Button
-            asChild
-            variant="destructive"
-            className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl transition-shadow"
-          >
-            <Link href="/matches#live">
-              Live Score
-            </Link>
-          </Button>
+        <div className="w-full container mx-auto px-4 h-full relative">
+          {/* Live Score Button removed from here */}
           
-          <div className="flex items-center h-full"> {/* This div centers the main hero text content vertically */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-center pt-16 sm:pt-0"> {/* Added padding-top for smaller screens to avoid overlap */}
+          <div className="flex items-center h-full">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-center"> {/* Removed pt-16 sm:pt-0 */}
 
               {/* Left Content Block */}
               <div className="text-center lg:text-left">
@@ -112,7 +104,6 @@ export default function HomePage() {
       </section>
 
       <section id="star-players" aria-labelledby="star-players-heading" className="relative pt-16 pb-8 overflow-hidden">
-        {/* Removed faded background text div from here */}
         <h3 id="star-players-heading" className="text-3xl font-bold text-center mb-2 flex items-center justify-center">
           <Users className="inline-block h-8 w-8 mr-3 text-primary" /> Meet Our Star Players
         </h3>
