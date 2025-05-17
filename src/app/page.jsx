@@ -3,12 +3,13 @@ import Link from 'next/link';
 import ParallaxHero from '@/components/common/parallax-hero';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ArrowRight, LayoutList, Shield, BotMessageSquare, Zap, Users, MessageCircleQuestion } from 'lucide-react';
+import { ArrowRight, LayoutList, Shield, BotMessageSquare, Zap, Users, MessageCircleQuestion, MailCheck } from 'lucide-react';
 import { mockMatches, mockPlayers } from '@/lib/mock-data.js';
 import Image from 'next/image';
 import PlayersCarousel from '@/components/players/players-carousel';
 import AnimatedStatsSection from '@/components/common/animated-stats-section';
-import ContactForm from '@/components/forms/contact-form'; // Import the new contact form
+import ContactForm from '@/components/forms/contact-form';
+import NewsletterSubscribeForm from '@/components/forms/newsletter-subscribe-form'; // Import the new newsletter form
 
 export default function HomePage() {
   const liveMatch = mockMatches.find(match => match.status === 'Live') || mockMatches[0];
@@ -28,10 +29,9 @@ export default function HomePage() {
         overlayOpacity={0.65}
       >
         <div className="w-full container mx-auto px-4 h-full relative">
-          {/* Live Score Button removed from here */}
           
           <div className="flex items-center h-full">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-center"> {/* Removed pt-16 sm:pt-0 */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-center">
 
               {/* Left Content Block */}
               <div className="text-center lg:text-left">
@@ -141,7 +141,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* New Contact Us Section */}
+      {/* Newsletter Subscription Section */}
+      <section id="newsletter" aria-labelledby="newsletter-heading" className="py-16 bg-secondary/30 rounded-lg">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="text-center md:text-left animate-fade-in-left [animation-delay:0.2s]">
+              <MailCheck className="h-16 w-16 text-primary mx-auto md:mx-0 mb-4" />
+              <h2 id="newsletter-heading" className="text-3xl font-bold mb-3">
+                Stay Ahead of the Game!
+              </h2>
+              <p className="text-muted-foreground text-lg mb-6 max-w-md mx-auto md:mx-0">
+                Subscribe to our newsletter for the latest cricket news, match updates, and exclusive content delivered straight to your inbox.
+              </p>
+            </div>
+            <div className="flex justify-center animate-fade-in-right [animation-delay:0.4s]">
+              <NewsletterSubscribeForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Contact Us Section */}
       <section id="contact-us" aria-labelledby="contact-us-heading" className="py-12 md:py-16 bg-muted/50 rounded-lg">
         <div className="container mx-auto px-4">
           <h2 id="contact-us-heading" className="text-3xl font-bold text-center mb-4 flex items-center justify-center">
@@ -153,10 +174,10 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="flex justify-center md:justify-end">
               <Image
-                src="https://placehold.co/600x800.png" // Placeholder for an AI-generated 3D batsman image, as requested.
+                src="https://placehold.co/600x800.png" 
                 alt="AI Generated 3D Batsman"
-                width={450} // Adjusted for better fit
-                height={600} // Adjusted for better fit
+                width={450}
+                height={600}
                 className="rounded-lg shadow-2xl object-cover"
                 data-ai-hint="batsman 3d action"
               />
