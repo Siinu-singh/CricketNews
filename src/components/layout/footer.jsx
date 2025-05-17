@@ -119,7 +119,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {sitemapLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-foreground hover:text-primary transition-colors duration-150 flex justify-between items-center group text-base py-1">
+                  <Link href={link.href} className="text-primary hover:text-primary transition-colors duration-150 flex justify-between items-center group text-base py-1">
                     <span>{link.label}</span>
                     <ArrowUpRight className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
                   </Link>
