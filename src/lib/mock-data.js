@@ -14,8 +14,8 @@ export const mockPlayers = [
   {
     id: 'player2',
     name: 'Babar Azam',
-    photoUrl: 'https://placehold.co/300x450.png',
-    dataAiHint: 'player portrait',
+    photoUrl: 'https://media.gettyimages.com/id/2200096995/photo/karachi-pakistan-babar-azam-of-pakistan-poses-for-a-portrait-during-the-icc-champions-trophy.jpg?s=612x612&w=0&k=20&c=HBREy3YsfQjDNS-r3lYbOWyDZlxZ-k6D1vEuX7HVIJA=',
+    dataAiHint: 'Babar Azam portrait',
     role: 'Batsman',
     nationality: 'Pakistani',
     battingStyle: 'Right-handed',
@@ -355,3 +355,4 @@ export const mockMatches = [
     tournament: 'Bilateral Series'
   }
 ];
+
