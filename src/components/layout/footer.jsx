@@ -106,7 +106,7 @@ export default function Footer() {
                     size="icon" 
                     className="bg-primary hover:bg-primary/80 text-primary-foreground rounded-full w-14 h-14"
                   >
-                    <social.icon className="h-7 w-7" />
+                    <social.icon className="h-8 w-8" />
                   </Button>
                 </Link>
               ))}
