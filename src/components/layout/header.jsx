@@ -38,7 +38,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-sm text-card-foreground border-b border-border/60">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full">
       <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between relative px-4 sm:px-6 lg:px-8">
         {/* Live Score Button - Aligned Left */}
         <div className="flex-shrink-0">
