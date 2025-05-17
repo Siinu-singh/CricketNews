@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Mail, Instagram, Facebook, Twitter, Youtube, ArrowUpRight } from 'lucide-react'; // Changed Send to Mail
+import { Mail, Instagram, Facebook, Twitter, Youtube, ArrowUpRight } from 'lucide-react';
 
 // Re-define CricketLogo here as it's not exported from header.jsx
 const CricketLogo = ({ className }) => (
@@ -41,8 +41,9 @@ export default function Footer() {
 
   const handleNewsletterSubmit = (event) => {
     event.preventDefault();
+    // In a real app, you'd send this to a server/API
     console.log('Newsletter subscribed with email:', event.target.email.value);
-    alert('Thank you for subscribing!');
+    alert('Thank you for subscribing!'); // Simple feedback
     event.target.reset();
   };
 
@@ -58,7 +59,7 @@ export default function Footer() {
               </Link>
               <div>
                 <h3 className="text-3xl md:text-4xl font-bold mb-1">
-                  Join our <span className="text-primary">newsletter</span> for tips, advice and offers!
+                  Join our <span className="text-primary">newsletter</span> for tips, advice, match schedules, and exclusive offers!
                 </h3>
                 <p className="text-muted-foreground mb-4 text-base">
                   Stay updated with the latest cricket buzz.
@@ -103,9 +104,9 @@ export default function Footer() {
                   <Button 
                     variant="default" 
                     size="icon" 
-                    className="bg-primary hover:bg-primary/80 text-primary-foreground rounded-full w-12 h-12"
+                    className="bg-primary hover:bg-primary/80 text-primary-foreground rounded-full w-14 h-14"
                   >
-                    <social.icon className="h-6 w-6" />
+                    <social.icon className="h-7 w-7" />
                   </Button>
                 </Link>
               ))}
