@@ -59,7 +59,7 @@ export default function RankingsPage() {
         <p className="text-lg text-background/90 mt-2">Stay updated with the latest player and team standings.</p>
       </ParallaxHero>
 
-      <section id="player-rankings" className="px-8">
+      <section id="player-rankings" className="px-16">
         <h2 className="text-3xl font-bold mb-6 flex items-center"><User className="mr-3 h-8 w-8 text-primary"/>Player Rankings</h2>
         <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
           <RankingCard title="Top Test Batsmen" data={mockPlayerRankings.testBatsmen} icon={<BarChartHorizontalBig className="h-6 w-6 text-accent"/>} />
@@ -68,7 +68,7 @@ export default function RankingsPage() {
         </div>
       </section>
 
-      <section id="team-rankings" className="mt-12 px-8">
+      <section id="team-rankings" className="mt-12 px-16">
         <h2 className="text-3xl font-bold mb-6 flex items-center"><Users className="mr-3 h-8 w-8 text-primary"/>Team Rankings</h2>
         <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
           <RankingCard title="Top Test Teams" data={mockTeamRankings.test} isTeamRanking icon={<Shield className="h-6 w-6 text-accent"/>} />
