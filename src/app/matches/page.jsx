@@ -14,7 +14,7 @@ export default function MatchesPage() {
       return <p className="text-center text-muted-foreground py-8">{emptyMessage}</p>;
     }
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6 px-8">
         {matches.map(match => (
           <MatchCard key={match.id} match={match} />
         ))}
@@ -53,4 +53,3 @@ export default function MatchesPage() {
     </div>
   );
 }
-
