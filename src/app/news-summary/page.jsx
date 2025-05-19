@@ -22,25 +22,28 @@ export default function NewsSummaryPage() {
         </div>
       </ParallaxHero>
 
-      <Card className="shadow-lg">
-        <CardHeader>
-          <CardTitle className="flex items-center text-2xl">
-            <Info className="h-6 w-6 mr-3 text-primary" />
-            How It Works
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-muted-foreground">
-            Our AI-powered news summarizer intelligently processes the content of cricket articles,
-            identifying key information, significant events, and main conclusions. It then condenses
-            this into easy-to-read bullet points, saving you time while keeping you informed.
-            Simply paste the article text into the form below and let our AI do the rest!
-          </p>
-        </CardContent>
-      </Card>
-      
-      <div className="max-w-3xl mx-auto">
-        <NewsSummaryForm />
+      {/* Wrapper for content below hero to apply consistent padding */}
+      <div className="container mx-auto px-8 space-y-8">
+        <Card className="shadow-lg">
+          <CardHeader>
+            <CardTitle className="flex items-center text-2xl">
+              <Info className="h-6 w-6 mr-3 text-primary" />
+              How It Works
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground">
+              Our AI-powered news summarizer intelligently processes the content of cricket articles,
+              identifying key information, significant events, and main conclusions. It then condenses
+              this into easy-to-read bullet points, saving you time while keeping you informed.
+              Simply paste the article text into the form below and let our AI do the rest!
+            </p>
+          </CardContent>
+        </Card>
+        
+        <div className="max-w-3xl mx-auto">
+          <NewsSummaryForm />
+        </div>
       </div>
     </div>
   );
