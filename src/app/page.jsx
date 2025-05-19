@@ -195,7 +195,7 @@ export default function HomePage() {
                 width={450}
                 height={600}
                 className="rounded-lg shadow-2xl object-cover"
-                data-ai-hint="batsman 3d action"
+                data-ai-hint="batsman confident"
               />
             </div>
             <div className="flex justify-center md:justify-start">
