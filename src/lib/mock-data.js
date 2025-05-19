@@ -47,8 +47,8 @@ export const mockPlayers = [
   {
     id: 'player5',
     name: 'Ellyse Perry',
-    photoUrl: 'https://placehold.co/300x450.png',
-    dataAiHint: 'player portrait',
+    photoUrl: 'https://media.gettyimages.com/id/2175870919/photo/dubai-united-arab-emirates-ellyse-perry-of-australia-poses-for-a-portrait-prior-to-the-icc.jpg?s=612x612&w=0&k=20&c=MQzyjNaES_YY7IG9q45MozYBmjkeBbu52oFNpnC0GJY=',
+    dataAiHint: 'Ellyse Perry portrait',
     role: 'All-rounder',
     nationality: 'Australian',
     battingStyle: 'Right-handed',
