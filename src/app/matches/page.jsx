@@ -2,7 +2,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import MatchCard from "@/components/matches/match-card";
 import { mockMatches } from "@/lib/mock-data";
-// import type { Match } from "@/types"; // Type import removed
 import ParallaxHero from "@/components/common/parallax-hero";
 
 export default function MatchesPage() {
@@ -36,7 +35,7 @@ export default function MatchesPage() {
       </ParallaxHero>
       
       <Tabs defaultValue="live" className="w-full">
-        <TabsList className="grid w-full grid-cols-3">
+        <TabsList className="sticky top-16 z-30 grid w-full grid-cols-3 bg-background shadow-md py-2 mb-4 rounded-lg border">
           <TabsTrigger value="live">Live</TabsTrigger>
           <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
           <TabsTrigger value="recent">Recent</TabsTrigger>
