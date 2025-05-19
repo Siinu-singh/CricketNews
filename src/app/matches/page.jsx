@@ -25,8 +25,8 @@ export default function MatchesPage() {
   return (
     <div className="space-y-8">
       <ParallaxHero 
-        imageUrl="https://placehold.co/1600x400.png" 
-        data-ai-hint="cricket stadium floodlights" 
+        imageUrl="https://img.freepik.com/premium-photo/vibrant-energetic-double-exposure-wallpaper-featuring-dynamic-movements-cricketthe-rhythmic-dance-colombian-cumbiaand-ample-copy-space-text-overlay_924727-48713.jpg?ga=GA1.1.1241576049.1745840677&semt=ais_hybrid&w=740" 
+        data-ai-hint="cricket action abstract" 
         minHeight="300px" 
         overlayOpacity={0.4}
       >
