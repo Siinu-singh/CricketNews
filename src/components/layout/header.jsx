@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -9,7 +10,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Sheet, SheetContent, SheetHeader, SheetClose } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetClose, SheetTitle } from "@/components/ui/sheet"; // Added SheetTitle
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -104,13 +105,16 @@ export default function Header() {
       <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
         <SheetContent side="left" className="w-[280px] p-0 bg-card text-card-foreground border-r shadow-xl flex flex-col">
            <SheetHeader className="p-4 border-b flex flex-row items-center justify-between shrink-0">
-            <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2">
-              <CricketLogo className="h-7 w-7 text-primary" />
-              <span className="font-bold text-lg text-foreground">CricNow</span>
-            </Link>
+            <SheetTitle asChild>
+              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 text-lg font-semibold text-foreground">
+                <CricketLogo className="h-7 w-7 text-primary" />
+                CricNow
+              </Link>
+            </SheetTitle>
             <SheetClose asChild>
               <Button variant="ghost" size="icon" className="rounded-full text-muted-foreground hover:text-foreground">
                 <X className="h-5 w-5" />
+                <span className="sr-only">Close menu</span>
               </Button>
             </SheetClose>
           </SheetHeader>
