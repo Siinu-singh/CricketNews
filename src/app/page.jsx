@@ -29,7 +29,6 @@ export default function HomePage() {
         data-ai-hint="cricket digital art"
         minHeight="80vh"
         overlayOpacity={0.65}
-        className="mx-[-2rem]"
       >
         <div className="w-full container mx-auto px-8 h-full relative">
           
@@ -66,86 +65,89 @@ export default function HomePage() {
         </div>
       </ParallaxHero>
 
-      <section id="live-scores" aria-labelledby="live-scores-heading">
-        <h2 id="live-scores-heading" className="text-3xl font-bold text-center mb-8">
-          <Zap className="inline-block h-8 w-8 mr-2 text-primary" /> Live Action
-        </h2>
-        {liveMatch && (
-          <Card className="max-w-2xl mx-auto shadow-xl hover:shadow-2xl transition-shadow duration-300">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-2xl flex items-center justify-between">
-                <span>{liveMatch.team1} vs {liveMatch.team2}</span>
-                <span className="text-sm font-medium text-primary bg-primary/10 px-2 py-1 rounded-md">{liveMatch.status}</span>
-              </CardTitle>
-              <CardDescription>{liveMatch.tournament} - {liveMatch.venue}</CardDescription>
-            </CardHeader>
-            <CardContent className="text-center">
-              <div className="grid grid-cols-2 gap-4 items-center my-4">
-                <div className="text-left">
-                  {liveMatch.team1Logo && <Image src={liveMatch.team1Logo} alt={`${liveMatch.team1} logo`} width={40} height={40} className="mx-auto mb-2 rounded-full" data-ai-hint="team logo" />}
-                  <p className="text-xl font-semibold">{liveMatch.team1}</p>
-                  <p className="text-3xl font-bold text-primary">{liveMatch.team1Score || 'N/A'}</p>
-                </div>
-                <div className="text-right">
-                  {liveMatch.team2Logo && <Image src={liveMatch.team2Logo} alt={`${liveMatch.team2} logo`} width={40} height={40} className="mx-auto mb-2 rounded-full" data-ai-hint="team logo" />}
-                  <p className="text-xl font-semibold">{liveMatch.team2}</p>
-                  <p className="text-3xl font-bold text-primary">{liveMatch.team2Score || 'N/A'}</p>
-                </div>
-              </div>
-              {liveMatch.overs && <p className="text-muted-foreground">Overs: {liveMatch.overs}</p>}
-              <Button variant="outline" asChild className="mt-4">
-                <Link href={`/matches#${liveMatch.status.toLowerCase()}`}>
-                  View Match Details <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
-        )}
-        {!liveMatch && (
-            <p className="text-center text-muted-foreground">No live matches currently. Check upcoming matches!</p>
-        )}
-      </section>
-
-      <section id="star-players" aria-labelledby="star-players-heading" className="relative pt-16 pb-8 overflow-hidden">
-        <h3 id="star-players-heading" className="text-3xl font-bold text-center mb-2 flex items-center justify-center">
-          <Users className="inline-block h-8 w-8 mr-3 text-primary" /> Meet Our Star Players
-        </h3>
-        <p className="text-center text-muted-foreground mb-10">Get to know some of the iconic players in the world of cricket.</p>
-        <PlayersCarousel players={mockPlayers} />
-      </section>
-
-      <AnimatedStatsSection stats={appStats} backgroundText="OUR REACH" />
-
-      <section id="features" aria-labelledby="features-heading">
-        <h2 id="features-heading" className="text-3xl font-bold text-center mb-8">Explore CricNow</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { title: 'Matches', description: 'Stay updated with upcoming, live, and recent match details.', href: '/matches', icon: LayoutList },
-            { title: 'Teams', description: 'Discover comprehensive team profiles and player information.', href: '/teams', icon: Shield },
-            { title: 'AI News Summary', description: 'Get quick insights from cricket news articles, summarized by AI.', href: '/news-summary', icon: BotMessageSquare },
-          ].map((feature) => (
-            <Card key={feature.title} className="hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <CardTitle className="flex items-center text-xl">
-                  <feature.icon className="h-6 w-6 mr-3 text-primary" />
-                  {feature.title}
+      {/* Wrapper for constrained content */}
+      <div className="container mx-auto px-8 space-y-12">
+        <section id="live-scores" aria-labelledby="live-scores-heading">
+          <h2 id="live-scores-heading" className="text-3xl font-bold text-center mb-8">
+            <Zap className="inline-block h-8 w-8 mr-2 text-primary" /> Live Action
+          </h2>
+          {liveMatch && (
+            <Card className="max-w-2xl mx-auto shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-2xl flex items-center justify-between">
+                  <span>{liveMatch.team1} vs {liveMatch.team2}</span>
+                  <span className="text-sm font-medium text-primary bg-primary/10 px-2 py-1 rounded-md">{liveMatch.status}</span>
                 </CardTitle>
+                <CardDescription>{liveMatch.tournament} - {liveMatch.venue}</CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">{feature.description}</p>
-                <Button variant="link" asChild className="p-0 h-auto text-primary">
-                  <Link href={feature.href}>
-                    Learn More <ArrowRight className="ml-1 h-4 w-4" />
+              <CardContent className="text-center">
+                <div className="grid grid-cols-2 gap-4 items-center my-4">
+                  <div className="text-left">
+                    {liveMatch.team1Logo && <Image src={liveMatch.team1Logo} alt={`${liveMatch.team1} logo`} width={40} height={40} className="mx-auto mb-2 rounded-full" data-ai-hint="team logo" />}
+                    <p className="text-xl font-semibold">{liveMatch.team1}</p>
+                    <p className="text-3xl font-bold text-primary">{liveMatch.team1Score || 'N/A'}</p>
+                  </div>
+                  <div className="text-right">
+                    {liveMatch.team2Logo && <Image src={liveMatch.team2Logo} alt={`${liveMatch.team2} logo`} width={40} height={40} className="mx-auto mb-2 rounded-full" data-ai-hint="team logo" />}
+                    <p className="text-xl font-semibold">{liveMatch.team2}</p>
+                    <p className="text-3xl font-bold text-primary">{liveMatch.team2Score || 'N/A'}</p>
+                  </div>
+                </div>
+                {liveMatch.overs && <p className="text-muted-foreground">Overs: {liveMatch.overs}</p>}
+                <Button variant="outline" asChild className="mt-4">
+                  <Link href={`/matches#${liveMatch.status.toLowerCase()}`}>
+                    View Match Details <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </CardContent>
             </Card>
-          ))}
-        </div>
-      </section>
+          )}
+          {!liveMatch && (
+              <p className="text-center text-muted-foreground">No live matches currently. Check upcoming matches!</p>
+          )}
+        </section>
 
-      {/* Newsletter Subscription Section */}
-      <section id="newsletter" aria-labelledby="newsletter-heading" className="py-16 bg-secondary/30 rounded-lg mx-[-2rem]">
+        <section id="star-players" aria-labelledby="star-players-heading" className="relative pt-16 pb-8 overflow-hidden">
+          <h3 id="star-players-heading" className="text-3xl font-bold text-center mb-2 flex items-center justify-center">
+            <Users className="inline-block h-8 w-8 mr-3 text-primary" /> Meet Our Star Players
+          </h3>
+          <p className="text-center text-muted-foreground mb-10">Get to know some of the iconic players in the world of cricket.</p>
+          <PlayersCarousel players={mockPlayers} />
+        </section>
+
+        <AnimatedStatsSection stats={appStats} backgroundText="OUR REACH" />
+
+        <section id="features" aria-labelledby="features-heading">
+          <h2 id="features-heading" className="text-3xl font-bold text-center mb-8">Explore CricNow</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { title: 'Matches', description: 'Stay updated with upcoming, live, and recent match details.', href: '/matches', icon: LayoutList },
+              { title: 'Teams', description: 'Discover comprehensive team profiles and player information.', href: '/teams', icon: Shield },
+              { title: 'AI News Summary', description: 'Get quick insights from cricket news articles, summarized by AI.', href: '/news-summary', icon: BotMessageSquare },
+            ].map((feature) => (
+              <Card key={feature.title} className="hover:shadow-lg transition-shadow duration-300">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-xl">
+                    <feature.icon className="h-6 w-6 mr-3 text-primary" />
+                    {feature.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">{feature.description}</p>
+                  <Button variant="link" asChild className="p-0 h-auto text-primary">
+                    <Link href={feature.href}>
+                      Learn More <ArrowRight className="ml-1 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      </div> {/* End of constrained content wrapper */}
+
+      {/* Sections with full-width backgrounds */}
+      <section id="newsletter" aria-labelledby="newsletter-heading" className="py-16 bg-secondary/30 rounded-lg">
         <div className="container mx-auto px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="text-center md:text-left animate-fade-in-left [animation-delay:0.2s]">
@@ -164,8 +166,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* What Our Fans Say Section */}
-      <section id="testimonials" aria-labelledby="testimonials-heading" className="py-16 md:py-24 bg-background mx-[-2rem]">
+      <section id="testimonials" aria-labelledby="testimonials-heading" className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-8 text-center">
           <Quote className="h-12 w-12 text-primary mx-auto mb-4" />
           <h2 id="testimonials-heading" className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
@@ -179,8 +180,7 @@ export default function HomePage() {
       </section>
 
 
-      {/* Contact Us Section */}
-      <section id="contact-us" aria-labelledby="contact-us-heading" className="py-12 md:py-16 bg-muted/50 rounded-lg mx-[-2rem]">
+      <section id="contact-us" aria-labelledby="contact-us-heading" className="py-12 md:py-16 bg-muted/50 rounded-lg">
         <div className="container mx-auto px-8">
           <h2 id="contact-us-heading" className="text-3xl font-bold text-center mb-4 flex items-center justify-center">
             <MessageCircleQuestion className="inline-block h-8 w-8 mr-3 text-primary" /> Get In Touch
