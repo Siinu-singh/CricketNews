@@ -35,10 +35,25 @@ export default function MatchesPage() {
       </ParallaxHero>
       
       <Tabs defaultValue="live" className="w-full">
-        <TabsList className="sticky top-16 z-30 grid w-full grid-cols-3 bg-background shadow-md py-2 mb-4 rounded-lg border">
-          <TabsTrigger value="live">Live</TabsTrigger>
-          <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
-          <TabsTrigger value="recent">Recent</TabsTrigger>
+        <TabsList className="sticky top-16 z-30 grid w-full grid-cols-3 gap-2 sm:gap-4 bg-background py-3 px-2 sm:px-4 shadow-sm border-b mb-4">
+          <TabsTrigger 
+            value="live" 
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-lg px-3 py-2.5 text-sm sm:text-base font-semibold ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-2 border-transparent data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md data-[state=active]:border-primary hover:bg-accent/20 hover:text-accent-foreground"
+          >
+            Live
+          </TabsTrigger>
+          <TabsTrigger 
+            value="upcoming" 
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-lg px-3 py-2.5 text-sm sm:text-base font-semibold ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-2 border-transparent data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md data-[state=active]:border-primary hover:bg-accent/20 hover:text-accent-foreground"
+          >
+            Upcoming
+          </TabsTrigger>
+          <TabsTrigger 
+            value="recent" 
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-lg px-3 py-2.5 text-sm sm:text-base font-semibold ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-2 border-transparent data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md data-[state=active]:border-primary hover:bg-accent/20 hover:text-accent-foreground"
+          >
+            Recent
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="live" id="live">
           {renderMatches(liveMatches, "No live matches at the moment. Check back soon!")}
