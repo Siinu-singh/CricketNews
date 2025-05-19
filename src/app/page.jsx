@@ -30,9 +30,9 @@ export default function HomePage() {
         minHeight="80vh"
         overlayOpacity={0.65}
       >
-        <div className="w-full container mx-auto px-8 h-full relative">
+        <div className="w-full container mx-auto px-8 flex flex-col justify-center items-center text-center lg:text-left min-h-[80vh] pt-32 pb-16">
           
-          <div className="flex items-center h-full">
+          <div className="flex items-center w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-center">
 
               {/* Left Content Block */}
@@ -147,7 +147,7 @@ export default function HomePage() {
       </div> {/* End of constrained content wrapper */}
 
       {/* Sections with full-width backgrounds */}
-      <section id="newsletter" aria-labelledby="newsletter-heading" className="py-16 bg-secondary/30 rounded-lg">
+      <section id="newsletter" aria-labelledby="newsletter-heading" className="py-16 bg-secondary/30 rounded-lg mx-[-2rem]">
         <div className="container mx-auto px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="text-center md:text-left animate-fade-in-left [animation-delay:0.2s]">
@@ -166,7 +166,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="testimonials" aria-labelledby="testimonials-heading" className="py-16 md:py-24 bg-background">
+      <section id="testimonials" aria-labelledby="testimonials-heading" className="py-16 md:py-24 bg-background mx-[-2rem]">
         <div className="container mx-auto px-8 text-center">
           <Quote className="h-12 w-12 text-primary mx-auto mb-4" />
           <h2 id="testimonials-heading" className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
@@ -180,7 +180,7 @@ export default function HomePage() {
       </section>
 
 
-      <section id="contact-us" aria-labelledby="contact-us-heading" className="py-12 md:py-16 bg-muted/50 rounded-lg">
+      <section id="contact-us" aria-labelledby="contact-us-heading" className="py-12 md:py-16 bg-muted/50 rounded-lg mx-[-2rem]">
         <div className="container mx-auto px-8">
           <h2 id="contact-us-heading" className="text-3xl font-bold text-center mb-4 flex items-center justify-center">
             <MessageCircleQuestion className="inline-block h-8 w-8 mr-3 text-primary" /> Get In Touch
