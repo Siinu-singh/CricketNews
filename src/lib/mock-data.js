@@ -36,8 +36,8 @@ export const mockPlayers = [
   {
     id: 'player4',
     name: 'Shaheen Afridi',
-    photoUrl: 'https://placehold.co/300x450.png',
-    dataAiHint: 'player portrait',
+    photoUrl: 'https://media.gettyimages.com/id/2200096878/photo/karachi-pakistan-shaheen-shah-afridi-of-pakistan-poses-for-a-portrait-during-the-icc.jpg?s=612x612&w=0&k=20&c=8welI3dLgp0SwyOp_RXQAe6CK755SlCUx65nKfD3m_k=',
+    dataAiHint: 'Shaheen Afridi portrait',
     role: 'Bowler',
     nationality: 'Pakistani',
     bowlingStyle: 'Left-arm fast',
