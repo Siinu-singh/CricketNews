@@ -1,6 +1,6 @@
 
 import TeamCard from "@/components/teams/team-card";
-import { mockTeams } from "@/lib/mock-data";
+import { mockTeams } from "@/lib/mock-data.js";
 import ParallaxHero from "@/components/common/parallax-hero";
 
 export default function TeamsPage() {
@@ -16,15 +16,17 @@ export default function TeamsPage() {
         <p className="text-lg text-background/90 mt-2">Explore national and international cricket teams.</p>
       </ParallaxHero>
       
-      {mockTeams.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {mockTeams.map(team => (
-            <TeamCard key={team.id} team={team} />
-          ))}
-        </div>
-      ) : (
-        <p className="text-center text-muted-foreground py-8">No teams available at the moment.</p>
-      )}
+      <div className="container mx-auto px-8">
+        {mockTeams.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {mockTeams.map(team => (
+              <TeamCard key={team.id} team={team} />
+            ))}
+          </div>
+        ) : (
+          <p className="text-center text-muted-foreground py-8">No teams available at the moment.</p>
+        )}
+      </div>
     </div>
   );
 }
