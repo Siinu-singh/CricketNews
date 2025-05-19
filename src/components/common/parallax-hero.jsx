@@ -25,10 +25,9 @@ export default function ParallaxHero({
         // Only apply effect if hero is somewhat in view from the top
         if (top < viewportHeight && top + height > 0) {
           const scrollAmount = Math.max(0, -top); // How much the top of the hero is scrolled above the viewport
-          const maxScrollForEffect = height / 1.5; // Zoom effect applied over more of the hero's scroll
+          const maxScrollForEffect = height / 1.5; 
 
           if (scrollAmount > 0 && scrollAmount <= maxScrollForEffect) {
-            // Increase scale from 1 to 1.1
             newScale = 1 + (scrollAmount / maxScrollForEffect) * 0.1; // Max scale 1.1
           } else if (scrollAmount > maxScrollForEffect) {
             newScale = 1.1; // Keep max scale if scrolled further
@@ -46,7 +45,7 @@ export default function ParallaxHero({
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [minHeight]); // Re-run if minHeight changes, as it affects calculations
+  }, [minHeight]); 
 
   const overlayStyle = {
     backgroundColor: `rgba(0, 0, 0, ${Math.max(0, Math.min(1, overlayOpacity))})`,
@@ -66,14 +65,15 @@ export default function ParallaxHero({
     >
       {/* Inner div for the background image and scaling */}
       <div
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-300 ease-out" // Smoother transition
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-300 ease-out" 
         style={{
           backgroundImage: `url(${imageUrl})`,
           transform: `scale(${scale})`,
         }}
       />
       <div className="absolute inset-0" style={overlayStyle}></div>
-      <div className="relative z-10 p-4 sm:p-8">
+      {/* Removed p-4 sm:p-8 from this div to let children control their padding */}
+      <div className="relative z-10"> 
         {children}
       </div>
     </div>
