@@ -16,7 +16,7 @@ export default function TeamsPage() {
         <p className="text-lg text-background/90 mt-2">Explore national and international cricket teams.</p>
       </ParallaxHero>
       
-      <div className="container mx-auto px-8">
+      <div className="container mx-auto px-16"> {/* Changed px-8 to px-16 */}
         {mockTeams.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {mockTeams.map(team => (
@@ -30,3 +30,4 @@ export default function TeamsPage() {
     </div>
   );
 }
+
