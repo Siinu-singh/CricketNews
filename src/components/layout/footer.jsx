@@ -1,10 +1,9 @@
-
 "use client";
 
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Mail, Instagram, Facebook, Twitter, Youtube, ArrowUpRight } from 'lucide-react';
+import { Mail, Instagram, Facebook, Twitter, Youtube, ArrowUpRight, Send } from 'lucide-react'; // Added Send
 import { useToast } from '@/hooks/use-toast.js';
 
 // Re-define CricketLogo here as it's not exported from header.jsx
@@ -48,7 +47,7 @@ export default function Footer() {
     console.log('Newsletter subscribed with email:', email);
     toast({
       title: "Subscribed!",
-      description: `Thank you for subscribing with ${email}. We'll keep you updated.`,
+      description: `Thank you for subscribing. We'll keep you updated.`, // Removed email from toast
       variant: "default",
     });
     event.target.reset();
@@ -59,7 +58,7 @@ export default function Footer() {
       <div className="container mx-auto px-8">
         <div className="grid md:grid-cols-12 gap-x-8 gap-y-12 lg:gap-x-12 md:items-start">
           {/* Left Column */}
-          <div className="md:col-span-7 lg:col-span-8 space-y-8">
+          <div className="md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-7 space-y-8"> {/* Adjusted col-start and span */}
             <div className="flex items-start gap-4">
               <Link href="/" aria-label={`${siteName} Home`} className="shrink-0 mt-1">
                 <CricketLogo className="h-10 w-10 text-primary" />
@@ -87,7 +86,7 @@ export default function Footer() {
                     className="bg-primary hover:bg-primary/90 text-primary-foreground shrink-0 rounded-full px-6 py-3 h-12 flex items-center"
                   >
                     Subscribe
-                    <Mail className="ml-2 h-5 w-5" /> 
+                    <Send className="ml-2 h-5 w-5" /> 
                   </Button>
                 </form>
                 <p className="text-xs text-muted-foreground mt-2">
@@ -121,7 +120,7 @@ export default function Footer() {
           </div>
 
           {/* Right Column (Sitemap) */}
-          <div className="md:col-span-5 lg:col-span-4">
+          <div className="md:col-span-5 lg:col-span-4"> {/* Adjusted span to maintain 12 columns total */}
             <h4 className="text-sm font-semibold uppercase text-muted-foreground mb-4 tracking-wider">Sitemap</h4>
             <ul className="space-y-3">
               {sitemapLinks.map((link) => (
