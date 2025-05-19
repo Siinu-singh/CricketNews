@@ -29,6 +29,7 @@ export default function HomePage() {
         data-ai-hint="cricket digital art"
         minHeight="80vh"
         overlayOpacity={0.65}
+        className="mx-[-2rem]"
       >
         <div className="w-full container mx-auto px-8 h-full relative">
           
@@ -144,7 +145,7 @@ export default function HomePage() {
       </section>
 
       {/* Newsletter Subscription Section */}
-      <section id="newsletter" aria-labelledby="newsletter-heading" className="py-16 bg-secondary/30 rounded-lg">
+      <section id="newsletter" aria-labelledby="newsletter-heading" className="py-16 bg-secondary/30 rounded-lg mx-[-2rem]">
         <div className="container mx-auto px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="text-center md:text-left animate-fade-in-left [animation-delay:0.2s]">
@@ -164,7 +165,7 @@ export default function HomePage() {
       </section>
 
       {/* What Our Fans Say Section */}
-      <section id="testimonials" aria-labelledby="testimonials-heading" className="py-16 md:py-24 bg-background">
+      <section id="testimonials" aria-labelledby="testimonials-heading" className="py-16 md:py-24 bg-background mx-[-2rem]">
         <div className="container mx-auto px-8 text-center">
           <Quote className="h-12 w-12 text-primary mx-auto mb-4" />
           <h2 id="testimonials-heading" className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
@@ -179,7 +180,7 @@ export default function HomePage() {
 
 
       {/* Contact Us Section */}
-      <section id="contact-us" aria-labelledby="contact-us-heading" className="py-12 md:py-16 bg-muted/50 rounded-lg">
+      <section id="contact-us" aria-labelledby="contact-us-heading" className="py-12 md:py-16 bg-muted/50 rounded-lg mx-[-2rem]">
         <div className="container mx-auto px-8">
           <h2 id="contact-us-heading" className="text-3xl font-bold text-center mb-4 flex items-center justify-center">
             <MessageCircleQuestion className="inline-block h-8 w-8 mr-3 text-primary" /> Get In Touch
