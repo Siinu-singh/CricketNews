@@ -25,8 +25,8 @@ export const mockPlayers = [
   {
     id: 'player3',
     name: 'Jasprit Bumrah',
-    photoUrl: 'https://placehold.co/300x450.png',
-    dataAiHint: 'player portrait',
+    photoUrl: 'https://media.gettyimages.com/id/2155145768/photo/new-york-new-york-jasprit-bumrah-of-india-poses-for-a-portrait-prior-to-the-icc-mens-t20.jpg?s=612x612&w=0&k=20&c=kNdtzUKOUxBRcy-6Y_GH38DhueWWxTVdlXXrUaomZ3c=',
+    dataAiHint: 'Jasprit Bumrah portrait',
     role: 'Bowler',
     nationality: 'Indian',
     bowlingStyle: 'Right-arm fast',
@@ -534,3 +534,6 @@ export const mockTestimonials = [
     text: 'Been using CricNow for a month. The live match tracking is reliable, and the team pages are well-organized. Would love to see more historical data.',
   }
 ];
+
+
+    
