@@ -6,7 +6,7 @@ import { Search as SearchIcon } from "lucide-react";
 export default function SearchPage() {
   return (
     <div className="container mx-auto px-8 py-8">
-      <h1 className="text-4xl font-bold mb-8 text-center">Search CricNow</h1>
+      <h1 className="text-4xl font-bold mt-12 mb-8 text-center">Search CricNow</h1>
       <div className="max-w-xl mx-auto bg-card p-8 rounded-lg shadow-lg">
         <div className="flex w-full items-center space-x-2">
           <Input type="text" placeholder="Search for matches, players, teams..." className="text-base" />
