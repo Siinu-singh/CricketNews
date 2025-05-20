@@ -536,24 +536,204 @@ export const mockTestimonials = [
 ];
 
 export const mockNewsHeadlines = [
-  "Kohli hits record-breaking century in IPL final.",
-  "Bumrah's fiery spell seals Test series win for India.",
-  "England clinch Ashes urn after thrilling fifth Test.",
-  "Australia women dominate World Cup, lift trophy again.",
-  "Pakistan Super League announces expansion with two new teams.",
-  "West Indies young guns shine in U19 World Cup victory.",
-  "Sri Lanka appoints new head coach ahead of crucial tour.",
-  "South Africa's T20 league viewership breaks records.",
-  "New Zealand's Williamson ruled out of ODIs due to injury.",
-  "Bangladesh Tigers roar in historic win against Australia.",
-  "Afghanistan's Rashid Khan spins web around top batsmen.",
-  "Ireland secures Full Member status benefits from ICC.",
-  "Zimbabwe cricket looks to rebuild with new domestic structure.",
-  "The Hundred: Oval Invincibles crowned champions.",
-  "T20 World Cup qualifiers: Netherlands and Scotland secure spots.",
-  "Debates rage over 'Mankading' in close encounters.",
-  "ICC introduces new playing conditions for ODIs.",
-  "Legends League Cricket Season 3 dates announced.",
-  "County Championship sees thrilling final day finishes.",
-  "Women's Premier League (WPL) auction sets new benchmarks."
+  {
+    id: 'news1',
+    title: "Kohli hits record-breaking century in IPL final.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'cricket celebration action',
+    category: 'IPL',
+    date: 'July 28, 2024',
+    source: 'CricPulse',
+    excerpt: 'Virat Kohli delivered a masterful performance, scoring an unbeaten 120 to lead his team to victory in a thrilling IPL final.'
+  },
+  {
+    id: 'news2',
+    title: "Bumrah's fiery spell seals Test series win for India.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'bowler action cricket',
+    category: 'Test Cricket',
+    date: 'July 27, 2024',
+    source: 'ESPN Cricinfo',
+    excerpt: 'Jasprit Bumrah took 5 crucial wickets in the final innings, dismantling the opposition and securing a historic Test series win away from home.'
+  },
+  {
+    id: 'news3',
+    title: "England clinch Ashes urn after thrilling fifth Test.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'cricket trophy team',
+    category: 'Ashes',
+    date: 'July 26, 2024',
+    source: 'Sky Sports',
+    excerpt: 'A nail-biting finish in the fifth Test saw England emerge victorious, reclaiming the coveted Ashes urn in front of a packed home crowd.'
+  },
+  {
+    id: 'news4',
+    title: "Australia women dominate World Cup, lift trophy again.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'womens cricket champion',
+    category: "Women's Cricket",
+    date: 'July 25, 2024',
+    source: 'ICC Official',
+    excerpt: "The Australian women's cricket team showcased their dominance once again, clinching another World Cup title with an undefeated run."
+  },
+  {
+    id: 'news5',
+    title: "Pakistan Super League announces expansion with two new teams.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'cricket league announcement',
+    category: 'PSL',
+    date: 'July 24, 2024',
+    source: 'Geo News',
+    excerpt: 'The PSL is set to expand, with two new franchises joining the league from the next season, promising even more exciting T20 action.'
+  },
+  {
+    id: 'news6',
+    title: "West Indies young guns shine in U19 World Cup victory.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'youth cricket celebration',
+    category: 'U19 World Cup',
+    date: 'July 23, 2024',
+    source: 'Cricket West Indies',
+    excerpt: 'The future of West Indies cricket looks bright as their U19 team displayed exceptional talent to win the Youth World Cup.'
+  },
+  {
+    id: 'news7',
+    title: "Sri Lanka appoints new head coach ahead of crucial tour.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'coach press conference',
+    category: 'International',
+    date: 'July 22, 2024',
+    source: 'Daily Mirror LK',
+    excerpt: 'Sri Lanka Cricket has announced the appointment of a new head coach, aiming to revitalize the team before their upcoming international fixtures.'
+  },
+  {
+    id: 'news8',
+    title: "South Africa's T20 league viewership breaks records.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'cricket stadium crowd',
+    category: 'T20 Leagues',
+    date: 'July 21, 2024',
+    source: 'SuperSport',
+    excerpt: "The inaugural season of South Africa's new T20 league has been a massive success, shattering viewership records across the nation."
+  },
+  {
+    id: 'news9',
+    title: "New Zealand's Williamson ruled out of ODIs due to injury.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'cricketer injury physio',
+    category: 'Injury Update',
+    date: 'July 20, 2024',
+    source: 'NZ Herald',
+    excerpt: 'A setback for New Zealand as skipper Kane Williamson has been ruled out of the upcoming ODI series due to a persistent elbow injury.'
+  },
+  {
+    id: 'news10',
+    title: "Bangladesh Tigers roar in historic win against Australia.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'cricket team celebration',
+    category: 'International',
+    date: 'July 19, 2024',
+    source: 'The Daily Star',
+    excerpt: 'Bangladesh cricket team created history by defeating Australia in a thrilling T20 encounter on home soil.'
+  },
+  {
+    id: 'news11',
+    title: "Afghanistan's Rashid Khan spins web around top batsmen.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'spin bowler action',
+    category: 'T20 Leagues',
+    date: 'July 18, 2024',
+    source: 'CricTracker',
+    excerpt: 'Rashid Khan continues to mystify batsmen worldwide with his incredible spin bowling in various T20 leagues.'
+  },
+  {
+    id: 'news12',
+    title: "Ireland secures Full Member status benefits from ICC.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'cricket officials meeting',
+    category: 'ICC News',
+    date: 'July 17, 2024',
+    source: 'Cricket Ireland',
+    excerpt: 'Cricket Ireland has confirmed receipt of increased funding and support from the ICC following their Full Member status.'
+  },
+  {
+    id: 'news13',
+    title: "Zimbabwe cricket looks to rebuild with new domestic structure.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'cricket ground maintenance',
+    category: 'Development',
+    date: 'July 16, 2024',
+    source: 'The Herald ZW',
+    excerpt: 'Zimbabwe Cricket has announced a revamped domestic structure aimed at nurturing talent and strengthening the national team.'
+  },
+  {
+    id: 'news14',
+    title: "The Hundred: Oval Invincibles crowned champions.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'cricket tournament final',
+    category: 'The Hundred',
+    date: 'July 15, 2024',
+    source: 'BBC Sport',
+    excerpt: 'Oval Invincibles lifted The Hundred trophy after a spectacular final match at Lord\'s.'
+  },
+  {
+    id: 'news15',
+    title: "T20 World Cup qualifiers: Netherlands and Scotland secure spots.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'cricket team qualifying',
+    category: 'T20 World Cup',
+    date: 'July 14, 2024',
+    source: 'T20 World Cup Media',
+    excerpt: 'Netherlands and Scotland have successfully qualified for the upcoming T20 World Cup after strong performances in the qualifiers.'
+  },
+  {
+    id: 'news16',
+    title: "Debates rage over 'Mankading' in close encounters.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'cricket umpire decision',
+    category: 'Rules & Regulations',
+    date: 'July 13, 2024',
+    source: 'Wisden',
+    excerpt: 'The controversial "Mankad" dismissal has once again sparked debate in the cricket community following recent incidents.'
+  },
+  {
+    id: 'news17',
+    title: "ICC introduces new playing conditions for ODIs.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'cricket rule book',
+    category: 'ICC News',
+    date: 'July 12, 2024',
+    source: 'ICC Official',
+    excerpt: 'The International Cricket Council has announced updated playing conditions for One Day Internationals, effective next month.'
+  },
+  {
+    id: 'news18',
+    title: "Legends League Cricket Season 3 dates announced.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'veteran cricketers playing',
+    category: 'Legends Cricket',
+    date: 'July 11, 2024',
+    source: 'LLC Media',
+    excerpt: 'Get ready to see your favorite cricket legends back in action as Season 3 of the Legends League Cricket dates are unveiled.'
+  },
+  {
+    id: 'news19',
+    title: "County Championship sees thrilling final day finishes.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'english cricket county',
+    category: 'County Cricket',
+    date: 'July 10, 2024',
+    source: 'ECB',
+    excerpt: 'Several County Championship matches went down to the wire, providing fans with exhilarating final day action.'
+  },
+  {
+    id: 'news20',
+    title: "Women's Premier League (WPL) auction sets new benchmarks.",
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'auction event sports',
+    category: 'WPL',
+    date: 'July 09, 2024',
+    source: 'WPL Official',
+    excerpt: "The auction for the Women's Premier League saw record bids for players, highlighting the growing value of women's T20 cricket."
+  }
 ];
