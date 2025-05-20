@@ -535,5 +535,25 @@ export const mockTestimonials = [
   }
 ];
 
-
-    
+export const mockNewsHeadlines = [
+  "Kohli hits record-breaking century in IPL final.",
+  "Bumrah's fiery spell seals Test series win for India.",
+  "England clinch Ashes urn after thrilling fifth Test.",
+  "Australia women dominate World Cup, lift trophy again.",
+  "Pakistan Super League announces expansion with two new teams.",
+  "West Indies young guns shine in U19 World Cup victory.",
+  "Sri Lanka appoints new head coach ahead of crucial tour.",
+  "South Africa's T20 league viewership breaks records.",
+  "New Zealand's Williamson ruled out of ODIs due to injury.",
+  "Bangladesh Tigers roar in historic win against Australia.",
+  "Afghanistan's Rashid Khan spins web around top batsmen.",
+  "Ireland secures Full Member status benefits from ICC.",
+  "Zimbabwe cricket looks to rebuild with new domestic structure.",
+  "The Hundred: Oval Invincibles crowned champions.",
+  "T20 World Cup qualifiers: Netherlands and Scotland secure spots.",
+  "Debates rage over 'Mankading' in close encounters.",
+  "ICC introduces new playing conditions for ODIs.",
+  "Legends League Cricket Season 3 dates announced.",
+  "County Championship sees thrilling final day finishes.",
+  "Women's Premier League (WPL) auction sets new benchmarks."
+];

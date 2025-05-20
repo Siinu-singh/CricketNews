@@ -1,8 +1,9 @@
 
 import NewsSummaryForm from "@/components/news/news-summary-form";
 import ParallaxHero from "@/components/common/parallax-hero";
-import { BotMessageSquare, Info } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BotMessageSquare, Info, ListChecks } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { mockNewsHeadlines } from '@/lib/mock-data.js';
 
 export default function NewsSummaryPage() {
   return (
@@ -43,6 +44,27 @@ export default function NewsSummaryPage() {
         
         <div className="max-w-3xl mx-auto">
           <NewsSummaryForm />
+        </div>
+
+        <div className="max-w-3xl mx-auto mt-8">
+          <Card className="shadow-lg">
+            <CardHeader>
+              <CardTitle className="flex items-center text-2xl">
+                <ListChecks className="h-6 w-6 mr-3 text-primary" />
+                Example Cricket News Headlines
+              </CardTitle>
+              <CardDescription>
+                Here are some examples of recent cricket headlines you could copy and paste into the summarizer (Note: you would need the full article text for summarization).
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                {mockNewsHeadlines.map((headline, index) => (
+                  <li key={index}>{headline}</li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
