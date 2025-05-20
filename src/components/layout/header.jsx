@@ -10,15 +10,15 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Sheet, SheetContent, SheetHeader, SheetClose, SheetTitle } from "@/components/ui/sheet"; // Added SheetTitle
+import { Sheet, SheetContent, SheetHeader, SheetClose, SheetTitle } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { href: '/matches', label: 'Matches' },
-  { href: '/rankings', label: 'Rankings' },
-  { href: '/news-summary', label: 'News' },
-  { href: '/teams', label: 'Teams' },
-  { href: '/search', label: 'Search' },
+  { href: '/matches', label: 'Matches', tooltipText: 'View live & upcoming matches' },
+  { href: '/rankings', label: 'Rankings', tooltipText: 'Check player & team rankings' },
+  { href: '/news-summary', label: 'News', tooltipText: 'AI-powered news summaries' },
+  { href: '/teams', label: 'Teams', tooltipText: 'Explore cricket teams' },
+  { href: '/search', label: 'Search', tooltipText: 'Search CricNow' },
 ];
 
 // Custom SVG Cricket Logo
@@ -56,36 +56,42 @@ export default function Header() {
         </div>
 
         {/* Desktop Centered Navigation */}
-        <nav className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-4 bg-card text-card-foreground py-2 px-4 rounded-full border shadow-sm">
-          <TooltipProvider delayDuration={100}>
+        <TooltipProvider delayDuration={100}>
+          <nav className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-4 text-card-foreground py-2 px-4 rounded-full border shadow-sm bg-gradient-to-br from-card via-card/90 to-muted/30 dark:from-popover dark:via-popover/90 dark:to-popover/80">
             <Tooltip>
               <TooltipTrigger asChild>
                 <Link href="/" className="flex items-center justify-center" aria-label="CricNow Home">
                   <CricketLogo className="h-6 w-6 text-primary" />
                 </Link>
               </TooltipTrigger>
-              <TooltipContent>
+              <TooltipContent side="bottom" align="center">
                 <p>CricNow Home</p>
               </TooltipContent>
             </Tooltip>
-          </TooltipProvider>
 
-          <div className="flex items-center gap-1">
-            {navLinks.map((item) => (
-              <Button
-                key={item.label}
-                variant="ghost"
-                size="sm"
-                asChild
-                className="px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded-md transition-colors"
-              >
-                <Link href={item.href}>
-                  {item.label}
-                </Link>
-              </Button>
-            ))}
-          </div>
-        </nav>
+            <div className="flex items-center gap-1">
+              {navLinks.map((item) => (
+                <Tooltip key={item.label}>
+                  <TooltipTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      asChild
+                      className="px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded-md transition-colors"
+                    >
+                      <Link href={item.href}>
+                        {item.label}
+                      </Link>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom" align="center">
+                    <p>{item.tooltipText}</p>
+                  </TooltipContent>
+                </Tooltip>
+              ))}
+            </div>
+          </nav>
+        </TooltipProvider>
 
         {/* Mobile Menu Toggler - Aligned Right */}
         <div className="md:hidden flex-shrink-0">
@@ -112,7 +118,7 @@ export default function Header() {
               </Link>
             </SheetTitle>
             <SheetClose asChild>
-              <Button variant="ghost" size="icon" className="rounded-full text-muted-foreground hover:text-foreground">
+              <Button variant="ghost" size="icon" className="rounded-full text-muted-foreground hover:text-foreground" aria-label="Close menu">
                 <X className="h-5 w-5" />
                 <span className="sr-only">Close menu</span>
               </Button>
