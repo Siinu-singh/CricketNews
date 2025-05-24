@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://yourdomain.com'), // Replace with your actual domain
+  metadataBase: new URL('https://yourdomain.com/'), // Added trailing slash
   title: {
     default: 'CricNow - Live Scores, Matches, Teams & News',
     template: '%s | CricNow',
@@ -27,7 +27,7 @@ export const metadata = {
   openGraph: {
     title: 'CricNow - Live Scores, Matches, Teams & News',
     description: 'Your ultimate destination for live cricket scores, match schedules, team information, player profiles, and AI-powered news summaries.',
-    url: 'https://yourdomain.com', // Replace with your actual domain
+    url: 'https://yourdomain.com/', // Replace with your actual domain
     siteName: 'CricNow',
     images: [
       {
@@ -71,7 +71,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
         <Header />
-        <main className="flex-grow pt-16">
+        <main className="flex-grow pt-16"> {/* Removed container mx-auto px-8, pt-16 handles fixed header */}
           {children}
         </main>
         <Footer />

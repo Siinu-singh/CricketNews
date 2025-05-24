@@ -25,10 +25,13 @@ export default function ParallaxHero({
         // Only apply effect if hero is somewhat in view from the top
         if (top < viewportHeight && top + height > 0) {
           const scrollAmount = Math.max(0, -top); // How much the top of the hero is scrolled above the viewport
+          // Increase the denominator to make the zoom effect progress over a larger scroll distance (slower zoom)
+          // Decrease it to make it faster. Height / 1.5 means effect completes over 2/3 of hero height scrolled.
           const maxScrollForEffect = height / 1.5; 
 
           if (scrollAmount > 0 && scrollAmount <= maxScrollForEffect) {
-            newScale = 1 + (scrollAmount / maxScrollForEffect) * 0.1; // Max scale 1.1
+            // Zoom up to 1.1 (10% zoom)
+            newScale = 1 + (scrollAmount / maxScrollForEffect) * 0.1; 
           } else if (scrollAmount > maxScrollForEffect) {
             newScale = 1.1; // Keep max scale if scrolled further
           } else {
@@ -45,7 +48,7 @@ export default function ParallaxHero({
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [minHeight]); 
+  }, []); // Changed dependency from [minHeight] to []
 
   const overlayStyle = {
     backgroundColor: `rgba(0, 0, 0, ${Math.max(0, Math.min(1, overlayOpacity))})`,

@@ -136,9 +136,9 @@ export default function HomePage() {
         </section>
 
         <section id="star-players" aria-labelledby="star-players-heading" className="relative pt-16 pb-8 overflow-hidden">
-          <h3 id="star-players-heading" className="text-3xl font-bold text-center mb-2 flex items-center justify-center">
+          <h2 id="star-players-heading" className="text-3xl font-bold text-center mb-2 flex items-center justify-center">
             <Users className="inline-block h-8 w-8 mr-3 text-primary" /> Meet Our Star Players
-          </h3>
+          </h2>
           <p className="text-center text-muted-foreground mb-10">Get to know some of the iconic players in the world of cricket.</p>
           <PlayersCarousel players={mockPlayers} />
         </section>
