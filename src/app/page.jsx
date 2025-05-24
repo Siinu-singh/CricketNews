@@ -12,6 +12,33 @@ import ContactForm from '@/components/forms/contact-form';
 import NewsletterSubscribeForm from '@/components/forms/newsletter-subscribe-form';
 import ScrollingTestimonials from '@/components/testimonials/scrolling-testimonials';
 
+export const metadata = {
+  title: 'CricNow - Live Scores, Matches, Teams & News',
+  description: 'The official homepage for CricNow. Get instant access to live cricket scores, upcoming match schedules, detailed team information, player profiles, and unique AI-powered news summaries. Your ultimate cricket companion.',
+  keywords: ['cricket homepage', 'live cricket', 'cricnow app', 'sports news', 'ai summary'],
+  openGraph: {
+    title: 'CricNow Homepage - Everything Cricket',
+    description: 'Explore live scores, player stats, team details, and AI news summaries on CricNow.',
+    url: 'https://yourdomain.com/', // Replace with your actual domain
+    images: [
+      {
+        url: 'https://yourdomain.com/og-homepage.png', // Replace with a specific OG image for homepage
+        width: 1200,
+        height: 630,
+        alt: 'CricNow Homepage Overview',
+      },
+    ],
+  },
+  twitter: {
+    title: 'CricNow Homepage - Your Cricket Hub',
+    description: 'Stay updated with all things cricket on the CricNow homepage.',
+    images: ['https://yourdomain.com/twitter-homepage.png'], // Replace
+  },
+  alternates: {
+    canonical: 'https://yourdomain.com/', // Replace
+  },
+};
+
 
 export default function HomePage() {
   const liveMatch = mockMatches.find(match => match.status === 'Live') || mockMatches[0];
@@ -29,6 +56,7 @@ export default function HomePage() {
         data-ai-hint="cricket digital art"
         minHeight="80vh"
         overlayOpacity={0.65}
+      
       >
         <div className="w-full container mx-auto px-8 flex flex-col justify-center items-center text-center lg:text-left min-h-[80vh] pt-32 pb-16">
           
@@ -147,7 +175,7 @@ export default function HomePage() {
       </div> {/* End of constrained content wrapper */}
 
       {/* Sections with full-width backgrounds */}
-      <section id="newsletter" aria-labelledby="newsletter-heading" className="py-16 bg-secondary/30 rounded-lg">
+      <section id="newsletter" aria-labelledby="newsletter-heading" className="py-16 bg-secondary/30 rounded-lg mx-[-2rem]">
         <div className="container mx-auto px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="text-center md:text-left animate-fade-in-left [animation-delay:0.2s]">
@@ -166,7 +194,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="testimonials" aria-labelledby="testimonials-heading" className="py-16 md:py-24 bg-background">
+      <section id="testimonials" aria-labelledby="testimonials-heading" className="py-16 md:py-24 bg-background mx-[-2rem]">
         <div className="container mx-auto px-8 text-center">
           <Quote className="h-12 w-12 text-primary mx-auto mb-4" />
           <h2 id="testimonials-heading" className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
@@ -180,7 +208,7 @@ export default function HomePage() {
       </section>
 
 
-      <section id="contact-us" aria-labelledby="contact-us-heading" className="py-12 md:py-16 bg-muted/50 rounded-lg">
+      <section id="contact-us" aria-labelledby="contact-us-heading" className="py-12 md:py-16 bg-muted/50 rounded-lg mx-[-2rem]">
         <div className="container mx-auto px-8">
           <h2 id="contact-us-heading" className="text-3xl font-bold text-center mb-4 flex items-center justify-center">
             <MessageCircleQuestion className="inline-block h-8 w-8 mr-3 text-primary" /> Get In Touch
@@ -192,7 +220,7 @@ export default function HomePage() {
             <div className="flex justify-center md:justify-end">
               <Image
                 src="https://placehold.co/600x800.png" 
-                alt="AI Generated 3D Batsman"
+                alt="AI Generated 3D Batsman in confident pose"
                 width={450}
                 height={600}
                 className="rounded-lg shadow-2xl object-cover"
@@ -208,4 +236,3 @@ export default function HomePage() {
     </div>
   );
 }
-

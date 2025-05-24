@@ -6,6 +6,33 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { mockNewsHeadlines } from '@/lib/mock-data.js';
 import NewsHeadlineCard from "@/components/news/news-headline-card";
 
+export const metadata = {
+  title: 'AI Cricket News Summarizer & Headlines',
+  description: 'Get quick, AI-powered summaries of cricket news articles. Paste article text to get key bullet points. Also, browse latest cricket headlines on CricNow.',
+  keywords: ['ai news summary', 'cricket news summarizer', 'news headlines', 'cricket updates', 'sports ai'],
+  openGraph: {
+    title: 'CricNow AI News Summarizer & Headlines',
+    description: 'Summarize cricket articles with AI and read the latest headlines.',
+    url: 'https://yourdomain.com/news-summary', // Replace
+    images: [
+      {
+        url: 'https://yourdomain.com/og-news-summary.png', // Replace
+        width: 1200,
+        height: 630,
+        alt: 'CricNow AI News Summarizer',
+      },
+    ],
+  },
+  twitter: {
+    title: 'CricNow AI News Summarizer & Headlines',
+    description: 'AI-powered cricket news summaries and latest headlines.',
+    images: ['https://yourdomain.com/twitter-news-summary.png'], // Replace
+  },
+  alternates: {
+    canonical: 'https://yourdomain.com/news-summary', // Replace
+  },
+};
+
 export default function NewsSummaryPage() {
   return (
     <div className="space-y-8">

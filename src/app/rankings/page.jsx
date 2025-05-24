@@ -4,6 +4,33 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { User, Users, Shield, BarChartHorizontalBig, TrendingUp } from "lucide-react";
 
+export const metadata = {
+  title: 'Cricket Rankings - Official ICC Player & Team Standings',
+  description: 'Stay updated with the latest official ICC cricket rankings for players and teams across Test, ODI, and T20I formats on CricNow.',
+  keywords: ['icc rankings', 'cricket player rankings', 'cricket team rankings', 'test rankings', 'odi rankings', 't20i rankings'],
+  openGraph: {
+    title: 'CricNow Cricket Rankings',
+    description: 'Official ICC player and team standings.',
+    url: 'https://yourdomain.com/rankings', // Replace
+    images: [
+      {
+        url: 'https://yourdomain.com/og-rankings.png', // Replace
+        width: 1200,
+        height: 630,
+        alt: 'CricNow ICC Rankings',
+      },
+    ],
+  },
+  twitter: {
+    title: 'CricNow Cricket Rankings - Latest Standings',
+    description: 'Check the latest official ICC player and team rankings.',
+    images: ['https://yourdomain.com/twitter-rankings.png'], // Replace
+  },
+  alternates: {
+    canonical: 'https://yourdomain.com/rankings', // Replace
+  },
+};
+
 const mockPlayerRankings = {
   testBatsmen: [
     { rank: 1, name: "Kane Williamson", team: "NZ", points: 919 },
@@ -128,4 +155,3 @@ function RankingCard({ title, data, isTeamRanking = false, icon }) { // Type ann
     </Card>
   );
 }
-

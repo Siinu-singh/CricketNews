@@ -7,6 +7,49 @@ import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { BarChart3, Star, Flag, Zap } from "lucide-react"; // Zap for strike rate, Star for bests
 import ParallaxHero from "@/components/common/parallax-hero";
+import { notFound } from 'next/navigation';
+
+export async function generateMetadata({ params }) {
+  const player = mockPlayers.find(p => p.id === params.playerId);
+  if (!player) {
+    return {
+      title: 'Player Not Found | CricNow',
+      description: 'The requested player profile could not be found.',
+    };
+  }
+
+  return {
+    title: `${player.name} - Cricket Player Profile & Stats`,
+    description: `View detailed cricket profile, career statistics, batting and bowling style for ${player.name}, the ${player.nationality} ${player.role}.`,
+    keywords: [player.name, player.nationality, player.role, 'cricket player', 'stats', 'profile'],
+    openGraph: {
+      title: `${player.name} - CricNow Player Profile`,
+      description: `Detailed stats and profile for ${player.name}.`,
+      url: `https://yourdomain.com/players/${player.id}`, // Replace
+      type: 'profile',
+      profile: {
+        firstName: player.name.split(' ')[0],
+        lastName: player.name.split(' ').slice(1).join(' '),
+      },
+      images: [
+        {
+          url: player.photoUrl || 'https://yourdomain.com/og-default-player.png', // Replace with a default
+          width: 400,
+          height: 400,
+          alt: player.name,
+        },
+      ],
+    },
+    twitter: {
+      title: `${player.name} - Cricket Profile | CricNow`,
+      description: `Explore ${player.name}'s career stats and bio.`,
+      images: [player.photoUrl || 'https://yourdomain.com/twitter-default-player.png'], // Replace
+    },
+    alternates: {
+      canonical: `https://yourdomain.com/players/${player.id}`, // Replace
+    },
+  };
+}
 
 // interface PlayerProfilePageProps { // Interface removed
 //   params: { playerId: string };
@@ -16,7 +59,7 @@ export default function PlayerProfilePage({ params }) { // Type annotation remov
   const player = mockPlayers.find(p => p.id === params.playerId);
 
   if (!player) {
-    return <div className="text-center py-10">Player not found.</div>;
+    notFound(); // Use Next.js notFound to render the 404 page
   }
 
   return (
@@ -24,7 +67,7 @@ export default function PlayerProfilePage({ params }) { // Type annotation remov
        <ParallaxHero imageUrl={player.photoUrl || "https://placehold.co/1600x400.png"} data-ai-hint="player action cricket" minHeight="350px" overlayOpacity={0.5}>
         <div className="flex flex-col items-center">
           <Avatar className="w-32 h-32 mb-4 border-4 border-background shadow-xl">
-            <AvatarImage src={player.photoUrl} alt={player.name} data-ai-hint="player portrait" />
+            <AvatarImage src={player.photoUrl} alt={`${player.name} portrait`} />
             <AvatarFallback className="text-4xl">{player.name.substring(0, 2).toUpperCase()}</AvatarFallback>
           </Avatar>
           <h1 className="text-5xl font-extrabold text-background">{player.name}</h1>
@@ -46,7 +89,7 @@ export default function PlayerProfilePage({ params }) { // Type annotation remov
           
           <Separator className="my-6" />
 
-          <h3 className="text-2xl font-semibold mb-4 flex items-center"><BarChart3 className="w-6 h-6 mr-2 text-primary"/>Career Statistics</h3>
+          <h2 className="text-2xl font-semibold mb-4 flex items-center"><BarChart3 className="w-6 h-6 mr-2 text-primary"/>Career Statistics</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <StatItem label="Matches" value={player.stats.matches.toString()} />
             <StatItem label="Runs Scored" value={player.stats.runs.toString()} />
@@ -75,9 +118,9 @@ function StatItem({ label, value, icon }) { // Type annotation removed
   );
 }
 
-
-export async function generateStaticParams() {
-  return mockPlayers.map(player => ({
-    playerId: player.id,
-  }));
-}
+// Removing generateStaticParams to make the page dynamically server-rendered
+// export async function generateStaticParams() {
+//   return mockPlayers.map(player => ({
+//     playerId: player.id,
+//   }));
+// }

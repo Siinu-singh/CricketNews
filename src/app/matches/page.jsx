@@ -4,6 +4,33 @@ import MatchCard from "@/components/matches/match-card";
 import { mockMatches } from "@/lib/mock-data";
 import ParallaxHero from "@/components/common/parallax-hero";
 
+export const metadata = {
+  title: 'Match Center - Live, Upcoming & Recent Cricket Matches',
+  description: 'Track all cricket action at CricNow\'s Match Center. View live scores, schedules for upcoming matches, and results of recent games across various tournaments.',
+  keywords: ['cricket matches', 'live cricket scores', 'upcoming matches', 'recent matches', 'match schedule'],
+  openGraph: {
+    title: 'CricNow Match Center',
+    description: 'Explore live, upcoming, and recent cricket matches.',
+    url: 'https://yourdomain.com/matches', // Replace
+    images: [
+      {
+        url: 'https://yourdomain.com/og-matches.png', // Replace
+        width: 1200,
+        height: 630,
+        alt: 'CricNow Match Center',
+      },
+    ],
+  },
+  twitter: {
+    title: 'CricNow Match Center - All Cricket Action',
+    description: 'Follow live scores, upcoming schedules, and recent results.',
+    images: ['https://yourdomain.com/twitter-matches.png'], // Replace
+  },
+  alternates: {
+    canonical: 'https://yourdomain.com/matches', // Replace
+  },
+};
+
 export default function MatchesPage() {
   const upcomingMatches = mockMatches.filter(match => match.status === 'Upcoming');
   const liveMatches = mockMatches.filter(match => match.status === 'Live');

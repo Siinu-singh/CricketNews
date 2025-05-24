@@ -8,6 +8,44 @@ import Link from 'next/link';
 import Image from "next/image";
 import { Users, Shield, MapPinIcon, UserCircle, ArrowRight } from "lucide-react";
 import ParallaxHero from "@/components/common/parallax-hero";
+import { notFound } from 'next/navigation';
+
+export async function generateMetadata({ params }) {
+  const team = mockTeams.find(t => t.id === params.teamId);
+  if (!team) {
+    return {
+      title: 'Team Not Found | CricNow',
+      description: 'The requested team profile could not be found.',
+    };
+  }
+
+  return {
+    title: `${team.name} - Cricket Team Profile & Squad`,
+    description: `View detailed profile, squad information, and more for the ${team.name} cricket team on CricNow.`,
+    keywords: [team.name, team.shortName, 'cricket team', 'squad', 'team profile'],
+    openGraph: {
+      title: `${team.name} - CricNow Team Profile`,
+      description: `Explore the ${team.name} cricket team, including squad details.`,
+      url: `https://yourdomain.com/teams/${team.id}`, // Replace
+      images: [
+        {
+          url: team.logoUrl || 'https://yourdomain.com/og-default-team.png', // Replace with a default
+          width: 400,
+          height: 400,
+          alt: `${team.name} Logo`,
+        },
+      ],
+    },
+    twitter: {
+      title: `${team.name} - Cricket Team Profile | CricNow`,
+      description: `Detailed information about the ${team.name} cricket team.`,
+      images: [team.logoUrl || 'https://yourdomain.com/twitter-default-team.png'], // Replace
+    },
+    alternates: {
+      canonical: `https://yourdomain.com/teams/${team.id}`, // Replace
+    },
+  };
+}
 
 // interface TeamDetailPageProps { // Interface removed
 //   params: { teamId: string };
@@ -17,7 +55,7 @@ export default function TeamDetailPage({ params }) { // Type annotation removed
   const team = mockTeams.find(t => t.id === params.teamId);
 
   if (!team) {
-    return <div className="text-center py-10">Team not found.</div>;
+    notFound(); // Use Next.js notFound to render the 404 page
   }
 
   // For demo, if team.players is empty, populate with some mock players
@@ -26,7 +64,7 @@ export default function TeamDetailPage({ params }) { // Type annotation removed
 
   return (
     <div className="space-y-8">
-      <ParallaxHero imageUrl={team.logoUrl || "https://placehold.co/1600x400.png"} data-ai-hint="team banner flag" minHeight="350px" overlayOpacity={0.6}>
+      <ParallaxHero imageUrl={team.bannerImageUrl || "https://placehold.co/1600x400.png"} data-ai-hint={team.bannerDataAiHint || "team banner flag"} minHeight="350px" overlayOpacity={0.6}>
         <div className="flex flex-col items-center">
           <Image src={team.logoUrl} alt={`${team.name} Logo`} width={120} height={120} className="rounded-full border-4 border-background shadow-xl mb-4" data-ai-hint="team logo emblem"/>
           <h1 className="text-5xl font-extrabold text-background">{team.name}</h1>
@@ -55,7 +93,7 @@ export default function TeamDetailPage({ params }) { // Type annotation removed
                 <Card key={player.id} className="hover:shadow-md transition-shadow">
                   <CardContent className="pt-6 flex flex-col items-center text-center">
                     <Avatar className="w-20 h-20 mb-3 border-2 border-primary">
-                      <AvatarImage src={player.photoUrl} alt={player.name} data-ai-hint="player portrait"/>
+                      <AvatarImage src={player.photoUrl} alt={`${player.name} - ${player.role}`} />
                       <AvatarFallback>{player.name.substring(0, 2).toUpperCase()}</AvatarFallback>
                     </Avatar>
                     <h3 className="text-lg font-semibold">{player.name}</h3>
@@ -78,8 +116,9 @@ export default function TeamDetailPage({ params }) { // Type annotation removed
   );
 }
 
-export async function generateStaticParams() {
-  return mockTeams.map(team => ({
-    teamId: team.id,
-  }));
-}
+// Removing generateStaticParams to make the page dynamically server-rendered
+// export async function generateStaticParams() {
+//   return mockTeams.map(team => ({
+//     teamId: team.id,
+//   }));
+// }
