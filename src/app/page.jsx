@@ -60,7 +60,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="space-y-12"> {/* Main page wrapper */}
+    <div className="space-y-12 md:space-y-16 lg:space-y-20"> {/* Main page wrapper */}
       <ParallaxHero
         imageUrl="https://img.freepik.com/free-photo/cricket-equipment-digital-art_23-2151761280.jpg?ga=GA1.1.1241576049.1745840677&semt=ais_hybrid&w=740"
         data-ai-hint="cricket digital art"
@@ -68,7 +68,7 @@ export default function HomePage() {
         overlayOpacity={0.65}
       >
         {/* Hero content is constrained by this inner container */}
-        <div className="w-full container mx-auto px-8 flex flex-col justify-center items-center text-center lg:text-left min-h-[80vh] pt-32 pb-16">
+        <div className="w-full container mx-auto px-4 md:px-6 lg:px-8 flex flex-col justify-center items-center text-center lg:text-left min-h-[80vh] pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-14 md:pb-16">
           <div className="flex items-center w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-center">
               {/* Left Content Block */}
@@ -88,7 +88,7 @@ export default function HomePage() {
                 <p className="text-lg sm:text-xl text-background/90 mb-8 max-w-md mx-auto lg:mx-0 animate-fade-in-up [animation-delay:0.4s]">
                   Cricket isn’t just a sport in India — it’s a heartbeat, a daily ritual, a shared emotion that connects millions.
                 </p>
-                <Button size="lg" asChild className="rounded-full px-10 py-3 text-lg font-semibold group shadow-lg hover:shadow-xl transition-shadow animate-fade-in-up [animation-delay:0.6s]">
+                <Button size="lg" asChild className="rounded-full px-8 sm:px-10 py-3 text-base sm:text-lg font-semibold group shadow-lg hover:shadow-xl transition-shadow animate-fade-in-up [animation-delay:0.6s]">
                   <Link href="/matches">
                     Explore Matches
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1.5" />
@@ -101,35 +101,35 @@ export default function HomePage() {
       </ParallaxHero>
 
       {/* Wrapper for constrained content for most sections */}
-      <div className="container mx-auto px-8 space-y-12">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 space-y-12 md:space-y-16 lg:space-y-20">
         <section id="live-scores" aria-labelledby="live-scores-heading">
-          <h2 id="live-scores-heading" className="text-3xl font-bold text-center mb-8">
-            <Zap className="inline-block h-8 w-8 mr-2 text-primary" /> Live Action
+          <h2 id="live-scores-heading" className="text-2xl sm:text-3xl font-bold text-center mb-8">
+            <Zap className="inline-block h-7 w-7 sm:h-8 sm:w-8 mr-2 text-primary" /> Live Action
           </h2>
           {liveMatch && (
             <Card className="max-w-2xl mx-auto shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <CardHeader className="pb-2">
-                <CardTitle className="text-2xl flex items-center justify-between">
+                <CardTitle className="text-xl sm:text-2xl flex items-center justify-between">
                   <span>{liveMatch.team1} vs {liveMatch.team2}</span>
-                  <span className="text-sm font-medium text-primary bg-primary/10 px-2 py-1 rounded-md">{liveMatch.status}</span>
+                  <span className="text-xs sm:text-sm font-medium text-primary bg-primary/10 px-2 py-1 rounded-md">{liveMatch.status}</span>
                 </CardTitle>
-                <CardDescription>{liveMatch.tournament} - {liveMatch.venue}</CardDescription>
+                <CardDescription className="text-sm sm:text-base">{liveMatch.tournament} - {liveMatch.venue}</CardDescription>
               </CardHeader>
               <CardContent className="text-center">
                 <div className="grid grid-cols-2 gap-4 items-center my-4">
                   <div className="text-left">
                     {liveMatch.team1Logo && <Image src={liveMatch.team1Logo} alt={`${liveMatch.team1} logo`} width={40} height={40} className="mx-auto mb-2 rounded-full" data-ai-hint="team logo" />}
-                    <p className="text-xl font-semibold">{liveMatch.team1}</p>
-                    <p className="text-3xl font-bold text-primary">{liveMatch.team1Score || 'N/A'}</p>
+                    <p className="text-lg sm:text-xl font-semibold">{liveMatch.team1}</p>
+                    <p className="text-2xl sm:text-3xl font-bold text-primary">{liveMatch.team1Score || 'N/A'}</p>
                   </div>
                   <div className="text-right">
                     {liveMatch.team2Logo && <Image src={liveMatch.team2Logo} alt={`${liveMatch.team2} logo`} width={40} height={40} className="mx-auto mb-2 rounded-full" data-ai-hint="team logo" />}
-                    <p className="text-xl font-semibold">{liveMatch.team2}</p>
-                    <p className="text-3xl font-bold text-primary">{liveMatch.team2Score || 'N/A'}</p>
+                    <p className="text-lg sm:text-xl font-semibold">{liveMatch.team2}</p>
+                    <p className="text-2xl sm:text-3xl font-bold text-primary">{liveMatch.team2Score || 'N/A'}</p>
                   </div>
                 </div>
-                {liveMatch.overs && <p className="text-muted-foreground">Overs: {liveMatch.overs}</p>}
-                <Button variant="outline" asChild className="mt-4">
+                {liveMatch.overs && <p className="text-muted-foreground text-sm sm:text-base">Overs: {liveMatch.overs}</p>}
+                <Button variant="outline" asChild className="mt-4 text-sm sm:text-base">
                   <Link href={`/matches#${liveMatch.id}`}>
                     View Match Details <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -144,11 +144,11 @@ export default function HomePage() {
 
         {/* IndiaMatch Introduction Section */}
         <section id="about-indiamatch" aria-labelledby="about-indiamatch-heading" className="py-8 space-y-8">
-          <h2 id="about-indiamatch-heading" className="text-3xl font-bold text-center text-primary mb-6">
+          <h2 id="about-indiamatch-heading" className="text-2xl sm:text-3xl font-bold text-center text-primary mb-6">
             Discover IndiaMatch
           </h2>
           <Card className="shadow-lg">
-            <CardContent className="pt-6 text-lg leading-relaxed space-y-4 text-foreground/90">
+            <CardContent className="pt-6 text-base sm:text-lg leading-relaxed space-y-4 text-foreground/90">
               <p>
                 At IndiaMatch, we exist to keep that passion alive and thriving in the digital world. Whether you’re watching a nail-biting T20 finish on your commute or checking score updates between meetings, we make sure the game stays with you, no matter where life takes you.
               </p>
@@ -158,12 +158,12 @@ export default function HomePage() {
             </CardContent>
           </Card>
 
-          <div className="grid md:grid-cols-2 gap-8 items-start">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-start">
             <Card className="shadow-md">
               <CardHeader>
-                <CardTitle className="text-2xl text-primary">Always On, Always Cricket</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl text-primary">Always On, Always Cricket</CardTitle>
               </CardHeader>
-              <CardContent className="text-foreground/80 space-y-3">
+              <CardContent className="text-foreground/80 space-y-3 text-sm sm:text-base">
                 <p>
                   We know today’s fans don’t want to wait for updates. That’s why IndiaMatch delivers lightning-fast live scores, ball-by-ball commentary, expert insights, and instant alerts — all optimized for web and mobile. Whether it’s a weekend ODI, a test match in England, or a high-stakes IPL clash, we’ve got you covered.
                 </p>
@@ -175,9 +175,9 @@ export default function HomePage() {
 
             <Card className="shadow-md">
               <CardHeader>
-                <CardTitle className="text-2xl text-primary">Built by Passionate Fans, For Passionate Fans</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl text-primary">Built by Passionate Fans, For Passionate Fans</CardTitle>
               </CardHeader>
-              <CardContent className="text-foreground/80 space-y-3">
+              <CardContent className="text-foreground/80 space-y-3 text-sm sm:text-base">
                 <p>
                   Behind IndiaMatch is a team of cricket-obsessed professionals — editors, developers, designers, and data analysts — who live and breathe the sport. We’re not just building another scores app. We’re creating an experience. Every feature is thoughtfully designed with one thing in mind: how can we make cricket better, more engaging, and more accessible for you?
                 </p>
@@ -188,22 +188,20 @@ export default function HomePage() {
             </Card>
           </div>
         </section>
-        {/* End of IndiaMatch Introduction Section - more content will be moved from here */}
-
-
-        <section id="star-players" aria-labelledby="star-players-heading" className="relative pt-16 pb-8 overflow-hidden">
-          <h2 id="star-players-heading" className="text-3xl font-bold text-center mb-2 flex items-center justify-center">
-            <Users className="inline-block h-8 w-8 mr-3 text-primary" /> Meet Our Star Players
+        
+        <section id="star-players" aria-labelledby="star-players-heading" className="relative pt-12 sm:pt-16 pb-8 overflow-hidden">
+          <h2 id="star-players-heading" className="text-2xl sm:text-3xl font-bold text-center mb-2 flex items-center justify-center">
+            <Users className="inline-block h-7 w-7 sm:h-8 sm:w-8 mr-3 text-primary" /> Meet Our Star Players
           </h2>
-          <p className="text-center text-muted-foreground mb-10">Get to know some of the iconic players in the world of cricket.</p>
+          <p className="text-center text-muted-foreground mb-8 sm:mb-10 text-sm sm:text-base">Get to know some of the iconic players in the world of cricket.</p>
           <PlayersCarousel players={mockPlayers} />
         </section>
 
         <AnimatedStatsSection stats={appStats} backgroundText="OUR REACH" />
 
         <section id="features" aria-labelledby="features-heading">
-          <h2 id="features-heading" className="text-3xl font-bold text-center mb-8">Explore CricNow Features</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <h2 id="features-heading" className="text-2xl sm:text-3xl font-bold text-center mb-8">Explore CricNow Features</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: 'Matches', description: 'Stay updated with upcoming, live, and recent match details.', href: '/matches', icon: LayoutList },
               { title: 'Teams', description: 'Discover comprehensive team profiles and player information.', href: '/teams', icon: Shield },
@@ -211,14 +209,14 @@ export default function HomePage() {
             ].map((feature) => (
               <Card key={feature.title} className="hover:shadow-lg transition-shadow duration-300">
                 <CardHeader>
-                  <CardTitle className="flex items-center text-xl">
-                    <feature.icon className="h-6 w-6 mr-3 text-primary" />
+                  <CardTitle className="flex items-center text-lg sm:text-xl">
+                    <feature.icon className="h-5 w-5 sm:h-6 sm:w-6 mr-3 text-primary" />
                     {feature.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">{feature.description}</p>
-                  <Button variant="link" asChild className="p-0 h-auto text-primary">
+                  <p className="text-muted-foreground mb-4 text-sm sm:text-base">{feature.description}</p>
+                  <Button variant="link" asChild className="p-0 h-auto text-primary text-sm sm:text-base">
                     <Link href={feature.href}>
                       Learn More <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
@@ -231,15 +229,15 @@ export default function HomePage() {
       </div> {/* End of main constrained content wrapper */}
 
       {/* Sections with full-width backgrounds */}
-      <section id="newsletter" aria-labelledby="newsletter-heading" className="py-16 bg-secondary/30 mx-[-2rem]">
-        <div className="container mx-auto px-8">
+      <section id="newsletter" aria-labelledby="newsletter-heading" className="py-12 md:py-16 bg-secondary/30">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="text-center md:text-left animate-fade-in-left [animation-delay:0.2s]">
-              <MailCheck className="h-16 w-16 text-primary mx-auto md:mx-0 mb-4" />
-              <h2 id="newsletter-heading" className="text-3xl font-bold mb-3">
+              <MailCheck className="h-12 w-12 sm:h-16 sm:w-16 text-primary mx-auto md:mx-0 mb-4" />
+              <h2 id="newsletter-heading" className="text-2xl sm:text-3xl font-bold mb-3">
                 Stay Ahead of the Game!
               </h2>
-              <p className="text-muted-foreground text-lg mb-6 max-w-md mx-auto md:mx-0">
+              <p className="text-muted-foreground text-base sm:text-lg mb-6 max-w-md mx-auto md:mx-0">
                 Subscribe to our newsletter for the latest cricket news, match updates, and exclusive content delivered straight to your inbox.
               </p>
             </div>
@@ -250,46 +248,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="testimonials" aria-labelledby="testimonials-heading" className="py-16 md:py-24 bg-background mx-[-2rem]">
-        <div className="container mx-auto px-8 text-center">
-          <Quote className="h-12 w-12 text-primary mx-auto mb-4" />
-          <h2 id="testimonials-heading" className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+      <section id="testimonials" aria-labelledby="testimonials-heading" className="py-12 md:py-16 lg:py-24 bg-background">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 text-center">
+          <Quote className="h-10 w-10 sm:h-12 sm:w-12 text-primary mx-auto mb-4" />
+          <h2 id="testimonials-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-foreground">
             What Our Fans Say
           </h2>
-          <p className="text-muted-foreground text-lg mb-12 max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-base sm:text-lg mb-10 sm:mb-12 max-w-2xl mx-auto">
             Hear from cricket enthusiasts who love using CricNow to stay connected to the game.
           </p>
         </div>
         <ScrollingTestimonials testimonials={mockTestimonials} /> {/* This component handles its own width for scrolling effect */}
       </section>
 
-      <section id="india-match-key-features" aria-labelledby="india-match-key-features-heading" className="py-12 md:py-16">
-        <div className="container mx-auto px-8">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 space-y-12 md:space-y-16 lg:space-y-20 py-12 md:py-16">
+        <section id="india-match-key-features" aria-labelledby="india-match-key-features-heading">
           <Card className="shadow-lg">
             <CardHeader>
-              <CardTitle id="india-match-key-features-heading" className="text-2xl text-center text-primary">Features That Set Us Apart</CardTitle>
+              <CardTitle id="india-match-key-features-heading" className="text-xl sm:text-2xl text-center text-primary">Features That Set Us Apart</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-4">
+              <ul className="space-y-3 sm:space-y-4">
                 {indiaMatchFeatures.map((feature, index) => (
                   <li key={index} className="flex items-start p-3 bg-muted/50 rounded-lg">
-                    <feature.icon className="h-6 w-6 mr-4 text-accent flex-shrink-0 mt-1" />
-                    <span className="text-foreground/90">{feature.text}</span>
+                    <feature.icon className="h-5 w-5 sm:h-6 sm:w-6 mr-3 sm:mr-4 text-accent flex-shrink-0 mt-1" />
+                    <span className="text-foreground/90 text-sm sm:text-base">{feature.text}</span>
                   </li>
                 ))}
               </ul>
             </CardContent>
           </Card>
-        </div>
-      </section>
+        </section>
 
-      {/* Moved Content Sections */}
-      <div className="container mx-auto px-8 space-y-8 md:space-y-12 py-12">
         <Card className="shadow-md">
             <CardHeader>
-              <CardTitle className="text-2xl text-primary">Cricket Anytime, Anywhere</CardTitle>
+              <CardTitle className="text-xl sm:text-2xl text-primary">Cricket Anytime, Anywhere</CardTitle>
             </CardHeader>
-            <CardContent className="text-foreground/80 space-y-3">
+            <CardContent className="text-foreground/80 space-y-3 text-sm sm:text-base">
               <p>
                 Gone are the days of checking scores on television or waiting for news updates. With IndiaMatch, cricket follows you. Whether you’re stuck in traffic, on a train, or at the office, the match is just a tap away.
               </p>
@@ -299,12 +294,12 @@ export default function HomePage() {
             </CardContent>
         </Card>
 
-        <div className="grid md:grid-cols-2 gap-8 items-start">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-start">
             <Card className="shadow-md">
               <CardHeader>
-                <CardTitle className="text-2xl text-primary">Our Vision</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl text-primary">Our Vision</CardTitle>
               </CardHeader>
-              <CardContent className="text-foreground/80 space-y-3">
+              <CardContent className="text-foreground/80 space-y-3 text-sm sm:text-base">
                 <p>
                   We’re building IndiaMatch for the long haul — as a leading platform for cricket lovers in India and beyond. The internet has changed how we consume content. It’s time it changed how we experience cricket too.
                 </p>
@@ -315,9 +310,9 @@ export default function HomePage() {
             </Card>
             <Card className="shadow-md">
               <CardHeader>
-                <CardTitle className="text-2xl text-primary">Join the IndiaMatch Movement</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl text-primary">Join the IndiaMatch Movement</CardTitle>
               </CardHeader>
-              <CardContent className="text-foreground/80 space-y-3">
+              <CardContent className="text-foreground/80 space-y-3 text-sm sm:text-base">
                 <p>
                   We’re just getting started. With each match, update, and upgrade, we’re evolving — and so is the game. Join the IndiaMatch community today and be part of the next generation of cricket fandom.
                 </p>
@@ -328,15 +323,13 @@ export default function HomePage() {
             </Card>
         </div>
       </div>
-      {/* End of Moved Content Sections */}
-
-
-      <section id="contact-us" aria-labelledby="contact-us-heading" className="py-12 md:py-16 bg-muted/50 mx-[-2rem]">
-        <div className="container mx-auto px-8">
-          <h2 id="contact-us-heading" className="text-3xl font-bold text-center mb-4 flex items-center justify-center">
-            <MessageCircleQuestion className="inline-block h-8 w-8 mr-3 text-primary" /> Get In Touch
+      
+      <section id="contact-us" aria-labelledby="contact-us-heading" className="py-12 md:py-16 bg-muted/50">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <h2 id="contact-us-heading" className="text-2xl sm:text-3xl font-bold text-center mb-4 flex items-center justify-center">
+            <MessageCircleQuestion className="inline-block h-7 w-7 sm:h-8 sm:w-8 mr-3 text-primary" /> Get In Touch
           </h2>
-          <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
+          <p className="text-center text-muted-foreground mb-8 sm:mb-10 max-w-2xl mx-auto text-sm sm:text-base">
             We'd love to hear from you! Whether you have a question, feedback, or a partnership inquiry, please reach out.
           </p>
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -346,7 +339,7 @@ export default function HomePage() {
                 alt="AI Generated 3D Batsman in confident pose"
                 width={450}
                 height={600}
-                className="rounded-lg shadow-2xl object-cover"
+                className="rounded-lg shadow-2xl object-cover max-w-xs sm:max-w-sm md:max-w-md lg:max-w-none"
                 data-ai-hint="batsman confident"
               />
             </div>

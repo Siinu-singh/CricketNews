@@ -75,82 +75,75 @@ const mockTeamRankings = {
 
 export default function RankingsPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 md:space-y-12">
       <ParallaxHero 
         imageUrl="https://placehold.co/1600x400.png" 
         data-ai-hint="trophy winners podium" 
         minHeight="300px" 
         overlayOpacity={0.4}
+        className="mx-[-1rem] md:mx-[-1.5rem] lg:mx-[-2rem]"
       >
-        <h1 className="text-4xl font-bold text-background">Official ICC Rankings</h1>
-        <p className="text-lg text-background/90 mt-2">Stay updated with the latest player and team standings.</p>
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <h1 className="text-3xl sm:text-4xl font-bold text-background">Official ICC Rankings</h1>
+          <p className="text-base sm:text-lg text-background/90 mt-2">Stay updated with the latest player and team standings.</p>
+        </div>
       </ParallaxHero>
 
-      <section id="player-rankings" className="px-16">
-        <h2 className="text-3xl font-bold mb-6 flex items-center"><User className="mr-3 h-8 w-8 text-primary"/>Player Rankings</h2>
-        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
-          <RankingCard title="Top Test Batsmen" data={mockPlayerRankings.testBatsmen} icon={<BarChartHorizontalBig className="h-6 w-6 text-accent"/>} />
-          <RankingCard title="Top ODI Bowlers" data={mockPlayerRankings.odiBowlers} icon={<TrendingUp className="h-6 w-6 text-accent"/>} />
-          <RankingCard title="Top T20I All-rounders" data={mockPlayerRankings.t20iAllRounders} icon={<User className="h-6 w-6 text-accent"/>} />
-        </div>
-      </section>
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 space-y-10 md:space-y-12">
+        <section id="player-rankings">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 flex items-center"><User className="mr-3 h-7 w-7 sm:h-8 sm:w-8 text-primary"/>Player Rankings</h2>
+          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
+            <RankingCard title="Top Test Batsmen" data={mockPlayerRankings.testBatsmen} icon={<BarChartHorizontalBig className="h-6 w-6 text-accent"/>} />
+            <RankingCard title="Top ODI Bowlers" data={mockPlayerRankings.odiBowlers} icon={<TrendingUp className="h-6 w-6 text-accent"/>} />
+            <RankingCard title="Top T20I All-rounders" data={mockPlayerRankings.t20iAllRounders} icon={<User className="h-6 w-6 text-accent"/>} />
+          </div>
+        </section>
 
-      <section id="team-rankings" className="mt-12 px-16">
-        <h2 className="text-3xl font-bold mb-6 flex items-center"><Users className="mr-3 h-8 w-8 text-primary"/>Team Rankings</h2>
-        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
-          <RankingCard title="Top Test Teams" data={mockTeamRankings.test} isTeamRanking icon={<Shield className="h-6 w-6 text-accent"/>} />
-          <RankingCard title="Top ODI Teams" data={mockTeamRankings.odi} isTeamRanking icon={<Shield className="h-6 w-6 text-accent"/>} />
-          <RankingCard title="Top T20I Teams" data={mockTeamRankings.t20i} isTeamRanking icon={<Shield className="h-6 w-6 text-accent"/>} />
-        </div>
-      </section>
+        <section id="team-rankings" className="mt-10 md:mt-12">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 flex items-center"><Users className="mr-3 h-7 w-7 sm:h-8 sm:w-8 text-primary"/>Team Rankings</h2>
+          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
+            <RankingCard title="Top Test Teams" data={mockTeamRankings.test} isTeamRanking icon={<Shield className="h-6 w-6 text-accent"/>} />
+            <RankingCard title="Top ODI Teams" data={mockTeamRankings.odi} isTeamRanking icon={<Shield className="h-6 w-6 text-accent"/>} />
+            <RankingCard title="Top T20I Teams" data={mockTeamRankings.t20i} isTeamRanking icon={<Shield className="h-6 w-6 text-accent"/>} />
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
 
-// interface RankingItem { // Interface removed
-//   rank: number;
-//   name: string;
-//   team?: string; 
-//   points: number;
-// }
-
-// interface RankingCardProps { // Interface removed
-//   title: string;
-//   data: RankingItem[];
-//   isTeamRanking?: boolean;
-//   icon?: React.ReactNode;
-// }
-
-function RankingCard({ title, data, isTeamRanking = false, icon }) { // Type annotations removed
+function RankingCard({ title, data, isTeamRanking = false, icon }) {
   return (
     <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
       <CardHeader>
-        <CardTitle className="text-xl flex items-center">
+        <CardTitle className="text-lg sm:text-xl flex items-center">
           {icon && <span className="mr-2">{icon}</span>}
           {title}
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[50px]">Rank</TableHead>
-              <TableHead>{isTeamRanking ? "Team" : "Player"}</TableHead>
-              {!isTeamRanking && <TableHead>Team</TableHead>}
-              <TableHead className="text-right">Points</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {data.map((item) => (
-              <TableRow key={item.rank}>
-                <TableCell className="font-medium">{item.rank}</TableCell>
-                <TableCell>{item.name}</TableCell>
-                {!isTeamRanking && <TableCell>{item.team}</TableCell>}
-                <TableCell className="text-right">{item.points}</TableCell>
+        <div className="overflow-x-auto">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-[50px]">Rank</TableHead>
+                <TableHead>{isTeamRanking ? "Team" : "Player"}</TableHead>
+                {!isTeamRanking && <TableHead>Team</TableHead>}
+                <TableHead className="text-right">Points</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {data.map((item) => (
+                <TableRow key={item.rank}>
+                  <TableCell className="font-medium">{item.rank}</TableCell>
+                  <TableCell>{item.name}</TableCell>
+                  {!isTeamRanking && <TableCell>{item.team}</TableCell>}
+                  <TableCell className="text-right">{item.points}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </CardContent>
     </Card>
   );

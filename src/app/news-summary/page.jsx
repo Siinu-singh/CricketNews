@@ -1,7 +1,7 @@
 
 import NewsSummaryForm from "@/components/news/news-summary-form";
 import ParallaxHero from "@/components/common/parallax-hero";
-import { BotMessageSquare, Info, ListChecks, Newspaper } from "lucide-react";
+import { BotMessageSquare, Info, Newspaper } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { mockNewsHeadlines } from '@/lib/mock-data.js';
 import NewsHeadlineCard from "@/components/news/news-headline-card";
@@ -35,33 +35,34 @@ export const metadata = {
 
 export default function NewsSummaryPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 md:space-y-12">
       <ParallaxHero 
         imageUrl="https://placehold.co/1600x400.png" 
         data-ai-hint="artificial intelligence abstract" 
         minHeight="300px" 
         overlayOpacity={0.5}
+        className="mx-[-1rem] md:mx-[-1.5rem] lg:mx-[-2rem]"
       >
-        <div className="flex items-center justify-center flex-col">
-          <BotMessageSquare className="h-16 w-16 text-accent mb-4" />
-          <h1 className="text-4xl font-bold text-background">AI News Summarizer</h1>
-          <p className="text-lg text-background/90 mt-2 max-w-2xl text-center">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-center flex-col">
+          <BotMessageSquare className="h-12 w-12 sm:h-16 sm:w-16 text-accent mb-4" />
+          <h1 className="text-3xl sm:text-4xl font-bold text-background">AI News Summarizer</h1>
+          <p className="text-base sm:text-lg text-background/90 mt-2 max-w-2xl text-center">
             Get concise bullet-point summaries of lengthy cricket news articles using advanced AI.
           </p>
         </div>
       </ParallaxHero>
 
       {/* Wrapper for content below hero to apply consistent padding */}
-      <div className="container mx-auto px-8 space-y-12"> {/* Increased space-y */}
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 space-y-10 md:space-y-12">
         <Card className="shadow-lg">
           <CardHeader>
-            <CardTitle className="flex items-center text-2xl">
-              <Info className="h-6 w-6 mr-3 text-primary" />
+            <CardTitle className="flex items-center text-xl sm:text-2xl">
+              <Info className="h-5 w-5 sm:h-6 sm:w-6 mr-3 text-primary" />
               How It Works
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-sm sm:text-base">
               Our AI-powered news summarizer intelligently processes the content of cricket articles,
               identifying key information, significant events, and main conclusions. It then condenses
               this into easy-to-read bullet points, saving you time while keeping you informed.
@@ -77,11 +78,11 @@ export default function NewsSummaryPage() {
         <div className="space-y-8">
           <Card className="shadow-lg border-none bg-transparent">
             <CardHeader className="text-center">
-              <CardTitle className="flex items-center justify-center text-3xl font-bold">
-                <Newspaper className="h-8 w-8 mr-3 text-primary" />
+              <CardTitle className="flex items-center justify-center text-2xl sm:text-3xl font-bold">
+                <Newspaper className="h-7 w-7 sm:h-8 sm:w-8 mr-3 text-primary" />
                 Latest Cricket Headlines
               </CardTitle>
-              <CardDescription className="text-lg text-muted-foreground mt-1">
+              <CardDescription className="text-base sm:text-lg text-muted-foreground mt-1">
                 Explore recent news from the world of cricket. Click any card to read more (simulated).
               </CardDescription>
             </CardHeader>

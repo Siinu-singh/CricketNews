@@ -32,18 +32,21 @@ export const metadata = {
 
 export default function TeamsPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 md:space-y-12">
       <ParallaxHero 
         imageUrl="https://placehold.co/1600x400.png" 
         data-ai-hint="cricket team huddle" 
         minHeight="300px" 
         overlayOpacity={0.4}
+        className="mx-[-1rem] md:mx-[-1.5rem] lg:mx-[-2rem]"
       >
-        <h1 className="text-4xl font-bold text-background">Cricket Teams</h1>
-        <p className="text-lg text-background/90 mt-2">Explore national and international cricket teams.</p>
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <h1 className="text-3xl sm:text-4xl font-bold text-background">Cricket Teams</h1>
+          <p className="text-base sm:text-lg text-background/90 mt-2">Explore national and international cricket teams.</p>
+        </div>
       </ParallaxHero>
       
-      <div className="container mx-auto px-16"> {/* Changed px-8 to px-16 */}
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
         {mockTeams.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {mockTeams.map(team => (

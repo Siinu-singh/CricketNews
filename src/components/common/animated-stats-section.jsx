@@ -2,18 +2,9 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
-// import type { FC } from 'react'; // FC type import removed
 import { cn } from '@/lib/utils.js';
 
-// interface StatItemProps { // Interface removed
-//   targetDisplayValue: number;
-//   label: string;
-//   suffix?: string;
-//   colorClass?: string;
-//   duration?: number;
-// }
-
-const StatItem = ({ // FC removed, props types removed
+const StatItem = ({ 
   targetDisplayValue,
   label,
   suffix = '',
@@ -29,13 +20,13 @@ const StatItem = ({ // FC removed, props types removed
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(entry.target); // Animate only once
+          observer.unobserve(entry.target); 
         }
       },
       {
-        root: null, // viewport
+        root: null, 
         rootMargin: '0px',
-        threshold: 0.1, // Trigger when 10% of the item is visible
+        threshold: 0.1, 
       }
     );
 
@@ -49,10 +40,10 @@ const StatItem = ({ // FC removed, props types removed
         observer.unobserve(currentItemRef);
       }
     };
-  }, []); // Runs once on mount to set up the observer
+  }, []); 
 
   useEffect(() => {
-    if (!isVisible) return; // Don't animate if not visible
+    if (!isVisible) return; 
 
     let startTimestamp = null;
     const animationFrame = (timestamp) => {
@@ -78,7 +69,7 @@ const StatItem = ({ // FC removed, props types removed
     };
     requestAnimationFrame(animationFrame);
 
-  }, [isVisible, targetDisplayValue, duration]); // Re-run animation if these change *after* becoming visible
+  }, [isVisible, targetDisplayValue, duration]); 
 
   const displayValueFormatted = currentValue.toLocaleString(undefined, {
     minimumFractionDigits: (targetDisplayValue.toString().split('.')[1] || '').length,
@@ -87,31 +78,25 @@ const StatItem = ({ // FC removed, props types removed
 
   return (
     <div ref={itemRef} className="flex flex-col items-center text-center p-4">
-      <span className={cn("text-5xl md:text-6xl lg:text-7xl font-extrabold mb-2", colorClass)}>
+      <span className={cn("text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-2", colorClass)}>
         {displayValueFormatted}{suffix}
       </span>
-      <span className="text-sm md:text-base text-muted-foreground uppercase tracking-wider">{label}</span>
+      <span className="text-xs sm:text-sm md:text-base text-muted-foreground uppercase tracking-wider">{label}</span>
     </div>
   );
 };
 
-// interface AnimatedStatsSectionProps { // Interface removed
-//   stats: Omit<StatItemProps, 'colorClass'>[];
-//   backgroundText?: string;
-// }
-
-const AnimatedStatsSection = ({ stats, backgroundText = "STATS" }) => { // FC removed, props types removed
+const AnimatedStatsSection = ({ stats, backgroundText = "STATS" }) => { 
   const themeColorClasses = ['text-accent', 'text-primary', 'text-chart-3', 'text-chart-4', 'text-chart-5'];
 
   return (
-    <section className="py-16 md:py-24 relative overflow-hidden">
+    <section className="py-12 sm:py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center -z-10 pointer-events-none select-none" aria-hidden="true">
-        <h2 className="text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-extrabold text-foreground/5 dark:text-foreground/10 opacity-50 leading-none tracking-tighter whitespace-nowrap">
+        <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-extrabold text-foreground/5 dark:text-foreground/10 opacity-50 leading-none tracking-tighter whitespace-nowrap">
           {backgroundText}
         </h2>
       </div>
-      {/* Removed the container div from here to allow the grid to use the page's main container */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
         {stats.map((stat, index) => (
           <StatItem
             key={stat.label}
