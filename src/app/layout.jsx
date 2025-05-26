@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://yourdomain.com/'), // Added trailing slash
+  metadataBase: new URL('https://yourdomain.com/'),
   title: {
     default: 'CricNow - Live Scores, Matches, Teams & News',
     template: '%s | CricNow',
@@ -27,11 +27,11 @@ export const metadata = {
   openGraph: {
     title: 'CricNow - Live Scores, Matches, Teams & News',
     description: 'Your ultimate destination for live cricket scores, match schedules, team information, player profiles, and AI-powered news summaries.',
-    url: 'https://yourdomain.com/', // Replace with your actual domain
+    url: 'https://yourdomain.com/',
     siteName: 'CricNow',
     images: [
       {
-        url: 'https://yourdomain.com/og-cricnow.png', // Replace with your actual OG image URL
+        url: 'https://yourdomain.com/og-cricnow.png',
         width: 1200,
         height: 630,
         alt: 'CricNow - Cricket Hub',
@@ -44,8 +44,8 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'CricNow - Live Scores, Matches, Teams & News',
     description: 'Your ultimate destination for live cricket scores, match schedules, team information, player profiles, and AI-powered news summaries.',
-    // site: '@cricnow', // Replace with your Twitter handle if you have one
-    images: ['https://yourdomain.com/twitter-cricnow.png'], // Replace with your actual Twitter image URL
+    // site: '@cricnow',
+    images: ['https://yourdomain.com/twitter-cricnow.png'],
   },
   robots: {
     index: true,
@@ -58,10 +58,6 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
-  // icons: { // This is handled by icon.svg and favicon.ico automatically
-  //   icon: '/icon.svg',
-  //   shortcut: '/favicon.ico',
-  // },
 };
 
 export default function RootLayout({
@@ -71,7 +67,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
         <Header />
-        <main className="flex-grow pt-16"> {/* Removed container mx-auto px-8, pt-16 handles fixed header */}
+        <main className="flex-grow pt-16"> {/* Changed: Removed container, mx-auto, px-8 */}
           {children}
         </main>
         <Footer />

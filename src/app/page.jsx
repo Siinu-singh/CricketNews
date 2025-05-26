@@ -19,10 +19,10 @@ export const metadata = {
   openGraph: {
     title: 'CricNow Homepage - Everything Cricket',
     description: 'Explore live scores, player stats, team details, and AI news summaries on CricNow.',
-    url: 'https://yourdomain.com/', // Replace with your actual domain
+    url: 'https://yourdomain.com/',
     images: [
       {
-        url: 'https://yourdomain.com/og-homepage.png', // Replace with a specific OG image for homepage
+        url: 'https://yourdomain.com/og-homepage.png',
         width: 1200,
         height: 630,
         alt: 'CricNow Homepage Overview',
@@ -32,10 +32,10 @@ export const metadata = {
   twitter: {
     title: 'CricNow Homepage - Your Cricket Hub',
     description: 'Stay updated with all things cricket on the CricNow homepage.',
-    images: ['https://yourdomain.com/twitter-homepage.png'], // Replace
+    images: ['https://yourdomain.com/twitter-homepage.png'],
   },
   alternates: {
-    canonical: 'https://yourdomain.com/', // Replace
+    canonical: 'https://yourdomain.com/',
   },
 };
 
@@ -50,19 +50,17 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="space-y-12">
-      <ParallaxHero
+    <div className="space-y-12"> {/* Main page wrapper, full width */}
+      <ParallaxHero // This will be full-width by default
         imageUrl="https://img.freepik.com/free-photo/cricket-equipment-digital-art_23-2151761280.jpg?ga=GA1.1.1241576049.1745840677&semt=ais_hybrid&w=740"
         data-ai-hint="cricket digital art"
         minHeight="80vh"
         overlayOpacity={0.65}
-      
       >
+        {/* Hero content is constrained by this inner container */}
         <div className="w-full container mx-auto px-8 flex flex-col justify-center items-center text-center lg:text-left min-h-[80vh] pt-32 pb-16">
-          
           <div className="flex items-center w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-center">
-
               {/* Left Content Block */}
               <div className="text-center lg:text-left">
                 <div className="text-sm text-background/80 flex items-center justify-center lg:justify-start mb-3 animate-fade-in-down [animation-delay:0s]">
@@ -174,8 +172,8 @@ export default function HomePage() {
         </section>
       </div> {/* End of constrained content wrapper */}
 
-      {/* Sections with full-width backgrounds */}
-      <section id="newsletter" aria-labelledby="newsletter-heading" className="py-16 bg-secondary/30 rounded-lg mx-[-2rem]">
+      {/* Sections with full-width backgrounds - remove mx-[-2rem] as parent is now full width */}
+      <section id="newsletter" aria-labelledby="newsletter-heading" className="py-16 bg-secondary/30 rounded-lg">
         <div className="container mx-auto px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="text-center md:text-left animate-fade-in-left [animation-delay:0.2s]">
@@ -194,7 +192,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="testimonials" aria-labelledby="testimonials-heading" className="py-16 md:py-24 bg-background mx-[-2rem]">
+      <section id="testimonials" aria-labelledby="testimonials-heading" className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-8 text-center">
           <Quote className="h-12 w-12 text-primary mx-auto mb-4" />
           <h2 id="testimonials-heading" className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
@@ -204,11 +202,11 @@ export default function HomePage() {
             Hear from cricket enthusiasts who love using CricNow to stay connected to the game.
           </p>
         </div>
-        <ScrollingTestimonials testimonials={mockTestimonials} />
+        <ScrollingTestimonials testimonials={mockTestimonials} /> {/* This component handles its own width for scrolling effect */}
       </section>
 
 
-      <section id="contact-us" aria-labelledby="contact-us-heading" className="py-12 md:py-16 bg-muted/50 rounded-lg mx-[-2rem]">
+      <section id="contact-us" aria-labelledby="contact-us-heading" className="py-12 md:py-16 bg-muted/50 rounded-lg">
         <div className="container mx-auto px-8">
           <h2 id="contact-us-heading" className="text-3xl font-bold text-center mb-4 flex items-center justify-center">
             <MessageCircleQuestion className="inline-block h-8 w-8 mr-3 text-primary" /> Get In Touch
