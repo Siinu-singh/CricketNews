@@ -142,7 +142,7 @@ export default function HomePage() {
           )}
         </section>
 
-        {/* New IndiaMatch Introduction Section */}
+        {/* IndiaMatch Introduction Section */}
         <section id="about-indiamatch" aria-labelledby="about-indiamatch-heading" className="py-8 space-y-8">
           <h2 id="about-indiamatch-heading" className="text-3xl font-bold text-center text-primary mb-6">
             Discover IndiaMatch
@@ -187,51 +187,8 @@ export default function HomePage() {
               </CardContent>
             </Card>
           </div>
-          
-          <Card className="shadow-md">
-            <CardHeader>
-              <CardTitle className="text-2xl text-primary">Cricket Anytime, Anywhere</CardTitle>
-            </CardHeader>
-            <CardContent className="text-foreground/80 space-y-3">
-              <p>
-                Gone are the days of checking scores on television or waiting for news updates. With IndiaMatch, cricket follows you. Whether you’re stuck in traffic, on a train, or at the office, the match is just a tap away.
-              </p>
-              <p>
-                And it’s not just about watching — it’s about being a part of the game. Chat live during matches, participate in fantasy leagues, share your hot takes, and explore deep-dive analytics with one tap.
-              </p>
-            </CardContent>
-          </Card>
-
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            <Card className="shadow-md">
-              <CardHeader>
-                <CardTitle className="text-2xl text-primary">Our Vision</CardTitle>
-              </CardHeader>
-              <CardContent className="text-foreground/80 space-y-3">
-                <p>
-                  We’re building IndiaMatch for the long haul — as a leading platform for cricket lovers in India and beyond. The internet has changed how we consume content. It’s time it changed how we experience cricket too.
-                </p>
-                <p>
-                  We envision a world where fans can interact with the sport in real-time, across platforms, and build connections that go beyond borders. Our goal? To become the most trusted and loved digital destination for cricket.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="shadow-md">
-              <CardHeader>
-                <CardTitle className="text-2xl text-primary">Join the IndiaMatch Movement</CardTitle>
-              </CardHeader>
-              <CardContent className="text-foreground/80 space-y-3">
-                <p>
-                  We’re just getting started. With each match, update, and upgrade, we’re evolving — and so is the game. Join the IndiaMatch community today and be part of the next generation of cricket fandom.
-                </p>
-                <p className="font-semibold text-primary">
-                  Stay connected. Stay passionate. Stay in the game — with IndiaMatch.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
         </section>
-        {/* End of New IndiaMatch Introduction Section */}
+        {/* End of IndiaMatch Introduction Section - more content will be moved from here */}
 
 
         <section id="star-players" aria-labelledby="star-players-heading" className="relative pt-16 pb-8 overflow-hidden">
@@ -325,6 +282,54 @@ export default function HomePage() {
           </Card>
         </div>
       </section>
+
+      {/* Moved Content Sections */}
+      <div className="container mx-auto px-8 space-y-8 md:space-y-12 py-12">
+        <Card className="shadow-md">
+            <CardHeader>
+              <CardTitle className="text-2xl text-primary">Cricket Anytime, Anywhere</CardTitle>
+            </CardHeader>
+            <CardContent className="text-foreground/80 space-y-3">
+              <p>
+                Gone are the days of checking scores on television or waiting for news updates. With IndiaMatch, cricket follows you. Whether you’re stuck in traffic, on a train, or at the office, the match is just a tap away.
+              </p>
+              <p>
+                And it’s not just about watching — it’s about being a part of the game. Chat live during matches, participate in fantasy leagues, share your hot takes, and explore deep-dive analytics with one tap.
+              </p>
+            </CardContent>
+        </Card>
+
+        <div className="grid md:grid-cols-2 gap-8 items-start">
+            <Card className="shadow-md">
+              <CardHeader>
+                <CardTitle className="text-2xl text-primary">Our Vision</CardTitle>
+              </CardHeader>
+              <CardContent className="text-foreground/80 space-y-3">
+                <p>
+                  We’re building IndiaMatch for the long haul — as a leading platform for cricket lovers in India and beyond. The internet has changed how we consume content. It’s time it changed how we experience cricket too.
+                </p>
+                <p>
+                  We envision a world where fans can interact with the sport in real-time, across platforms, and build connections that go beyond borders. Our goal? To become the most trusted and loved digital destination for cricket.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="shadow-md">
+              <CardHeader>
+                <CardTitle className="text-2xl text-primary">Join the IndiaMatch Movement</CardTitle>
+              </CardHeader>
+              <CardContent className="text-foreground/80 space-y-3">
+                <p>
+                  We’re just getting started. With each match, update, and upgrade, we’re evolving — and so is the game. Join the IndiaMatch community today and be part of the next generation of cricket fandom.
+                </p>
+                <p className="font-semibold text-primary">
+                  Stay connected. Stay passionate. Stay in the game — with IndiaMatch.
+                </p>
+              </CardContent>
+            </Card>
+        </div>
+      </div>
+      {/* End of Moved Content Sections */}
+
 
       <section id="contact-us" aria-labelledby="contact-us-heading" className="py-12 md:py-16 bg-muted/50 mx-[-2rem]">
         <div className="container mx-auto px-8">
