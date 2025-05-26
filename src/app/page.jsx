@@ -187,22 +187,6 @@ export default function HomePage() {
               </CardContent>
             </Card>
           </div>
-
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl text-center text-primary">Features That Set Us Apart</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-4">
-                {indiaMatchFeatures.map((feature, index) => (
-                  <li key={index} className="flex items-start p-3 bg-muted/50 rounded-lg">
-                    <feature.icon className="h-6 w-6 mr-4 text-accent flex-shrink-0 mt-1" />
-                    <span className="text-foreground/90">{feature.text}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
           
           <Card className="shadow-md">
             <CardHeader>
@@ -290,7 +274,7 @@ export default function HomePage() {
       </div> {/* End of main constrained content wrapper */}
 
       {/* Sections with full-width backgrounds */}
-      <section id="newsletter" aria-labelledby="newsletter-heading" className="py-16 bg-secondary/30">
+      <section id="newsletter" aria-labelledby="newsletter-heading" className="py-16 bg-secondary/30 mx-[-2rem]">
         <div className="container mx-auto px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="text-center md:text-left animate-fade-in-left [animation-delay:0.2s]">
@@ -309,7 +293,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="testimonials" aria-labelledby="testimonials-heading" className="py-16 md:py-24 bg-background">
+      <section id="testimonials" aria-labelledby="testimonials-heading" className="py-16 md:py-24 bg-background mx-[-2rem]">
         <div className="container mx-auto px-8 text-center">
           <Quote className="h-12 w-12 text-primary mx-auto mb-4" />
           <h2 id="testimonials-heading" className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
@@ -322,7 +306,27 @@ export default function HomePage() {
         <ScrollingTestimonials testimonials={mockTestimonials} /> {/* This component handles its own width for scrolling effect */}
       </section>
 
-      <section id="contact-us" aria-labelledby="contact-us-heading" className="py-12 md:py-16 bg-muted/50">
+      <section id="india-match-key-features" aria-labelledby="india-match-key-features-heading" className="py-12 md:py-16">
+        <div className="container mx-auto px-8">
+          <Card className="shadow-lg">
+            <CardHeader>
+              <CardTitle id="india-match-key-features-heading" className="text-2xl text-center text-primary">Features That Set Us Apart</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-4">
+                {indiaMatchFeatures.map((feature, index) => (
+                  <li key={index} className="flex items-start p-3 bg-muted/50 rounded-lg">
+                    <feature.icon className="h-6 w-6 mr-4 text-accent flex-shrink-0 mt-1" />
+                    <span className="text-foreground/90">{feature.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section id="contact-us" aria-labelledby="contact-us-heading" className="py-12 md:py-16 bg-muted/50 mx-[-2rem]">
         <div className="container mx-auto px-8">
           <h2 id="contact-us-heading" className="text-3xl font-bold text-center mb-4 flex items-center justify-center">
             <MessageCircleQuestion className="inline-block h-8 w-8 mr-3 text-primary" /> Get In Touch
