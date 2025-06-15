@@ -5,6 +5,7 @@ import './globals.css';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/toaster";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -19,22 +20,22 @@ const geistMono = Geist_Mono({
 export const metadata = {
   metadataBase: new URL('https://yourdomain.com/'),
   title: {
-    default: 'CricNow - Live Scores, Matches, Teams & News',
-    template: '%s | CricNow',
+    default: 'CricketNews - Live Scores, Matches, Teams & News',
+    template: '%s | CricketNews',
   },
-  description: 'Your ultimate destination for live cricket scores, match schedules, team information, player profiles, and AI-powered news summaries.',
-  keywords: ['cricket', 'live scores', 'cricket news', 'matches', 'teams', 'players', 'cricnow'],
+  description: 'Your ultimate destination for live cricket scores, match schedules, team information, player profiles, and AI-powered news summaries on CricketNews.',
+  keywords: ['cricket', 'live scores', 'cricket news', 'matches', 'teams', 'players', 'cricketnews'],
   openGraph: {
-    title: 'CricNow - Live Scores, Matches, Teams & News',
-    description: 'Your ultimate destination for live cricket scores, match schedules, team information, player profiles, and AI-powered news summaries.',
+    title: 'CricketNews - Live Scores, Matches, Teams & News',
+    description: 'Your ultimate destination for live cricket scores, match schedules, team information, player profiles, and AI-powered news summaries on CricketNews.',
     url: 'https://yourdomain.com/',
-    siteName: 'CricNow',
+    siteName: 'CricketNews',
     images: [
       {
-        url: 'https://yourdomain.com/og-cricnow.png',
+        url: 'https://yourdomain.com/og-cricketnews.png',
         width: 1200,
         height: 630,
-        alt: 'CricNow - Cricket Hub',
+        alt: 'CricketNews - Cricket Hub',
       },
     ],
     locale: 'en_US',
@@ -42,10 +43,10 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CricNow - Live Scores, Matches, Teams & News',
-    description: 'Your ultimate destination for live cricket scores, match schedules, team information, player profiles, and AI-powered news summaries.',
-    // site: '@cricnow',
-    images: ['https://yourdomain.com/twitter-cricnow.png'],
+    title: 'CricketNews - Live Scores, Matches, Teams & News',
+    description: 'Your ultimate destination for live cricket scores, match schedules, team information, player profiles, and AI-powered news summaries on CricketNews.',
+    // site: '@cricketnews',
+    images: ['https://yourdomain.com/twitter-cricketnews.png'],
   },
   robots: {
     index: true,
@@ -64,14 +65,21 @@ export default function RootLayout({
   children,
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
-        <Header />
-        <main className="flex-grow"> {/* Removed pt-16 */}
-          {children}
-        </main>
-        <Footer />
-        <Toaster />
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+        >
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -21,7 +21,7 @@ const CricketLogo = ({ className }) => (
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const siteName = 'CricNow';
+  const siteName = 'CricketNews';
   const { toast } = useToast();
 
   const sitemapLinks = [
@@ -53,28 +53,28 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-muted/30 text-foreground py-12 md:py-16 border-t border-border/40">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="grid md:grid-cols-12 gap-x-8 gap-y-12 lg:gap-x-12 md:items-start">
+    <footer className="bg-muted/30 text-foreground py-8 sm:py-12 md:py-16 2xl:py-20 3xl:py-24 border-t border-border/40">
+      <div className="container">
+        <div className="grid md:grid-cols-12 gap-x-6 lg:gap-x-8 xl:gap-x-12 gap-y-10 md:gap-y-12 md:items-start">
           
-          <div className="md:col-start-2 md:col-span-6 lg:col-span-7 space-y-8"> 
-            <div className="flex items-start gap-3 sm:gap-4">
-              <Link href="/" aria-label={`${siteName} Home`} className="shrink-0 mt-1">
-                <CricketLogo className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
+          <div className="md:col-span-7 lg:col-span-8 space-y-6 md:space-y-8 2xl:space-y-10"> 
+            <div className="flex items-start gap-3 sm:gap-4 2xl:gap-5">
+              <Link href="/" aria-label={`${siteName} Home`} className="shrink-0 mt-0.5 sm:mt-1">
+                <CricketLogo className="h-7 w-7 sm:h-8 md:h-10 2xl:h-12 3xl:h-14 text-primary" />
               </Link>
-              <div className="max-w-lg">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1">
+              <div className="max-w-md lg:max-w-lg 2xl:max-w-xl 3xl:max-w-2xl">
+                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl 3xl:text-6xl font-bold mb-1 sm:mb-1.5 2xl:mb-2">
                   Join our <span className="text-primary">newsletter</span> for tips, advice, match schedules, and exclusive offers!
                 </h3>
-                <p className="text-muted-foreground mb-4 text-sm sm:text-base">
+                <p className="text-muted-foreground mb-3 sm:mb-4 text-xs sm:text-sm md:text-base 2xl:text-lg 3xl:text-xl 2xl:mb-5">
                   Stay updated with the latest cricket buzz.
                 </p>
-                <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 w-full max-w-lg">
+                <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full max-w-md lg:max-w-lg 2xl:max-w-xl">
                   <Input
                     type="email"
                     name="email"
                     placeholder="Enter your email"
-                    className="flex-grow bg-background text-base h-12 px-4 rounded-full"
+                    className="flex-grow bg-background text-sm sm:text-base 2xl:text-lg h-10 sm:h-11 md:h-12 2xl:h-14 3xl:h-16 px-3 sm:px-4 2xl:px-5 rounded-full"
                     aria-label="Email for newsletter"
                     required
                   />
@@ -82,13 +82,13 @@ export default function Footer() {
                     type="submit" 
                     variant="default" 
                     size="lg" 
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground shrink-0 rounded-full px-6 py-3 h-12 flex items-center text-sm sm:text-base"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground shrink-0 rounded-full px-5 sm:px-6 2xl:px-8 py-2.5 sm:py-3 h-10 sm:h-11 md:h-12 2xl:h-14 3xl:h-16 flex items-center text-xs sm:text-sm md:text-base 2xl:text-lg 3xl:text-xl"
                   >
                     Subscribe
-                    <Send className="ml-2 h-4 w-4 sm:h-5 sm:w-5" /> 
+                    <Send className="ml-1.5 sm:ml-2 h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 2xl:h-6 2xl:w-6" /> 
                   </Button>
                 </form>
-                <p className="text-xs text-muted-foreground mt-2">
+                <p className="text-xs 2xl:text-sm text-muted-foreground mt-1.5 sm:mt-2 2xl:mt-3">
                   By signing up to receive emails from {siteName}, you agree to our{' '}
                   <Link href="/privacy-policy" className="underline hover:text-primary text-primary">Privacy Policy</Link>.
                   We treat your info responsibly. Unsubscribe anytime.
@@ -97,21 +97,21 @@ export default function Footer() {
             </div>
 
             <div>
-              <p className="text-sm sm:text-base font-semibold mb-1">Contact Us:</p>
-              <a href={`mailto:hello@${siteName.toLowerCase()}.com`} className="text-primary hover:underline text-sm sm:text-base">
-                hello@{siteName.toLowerCase()}.com
+              <p className="text-xs sm:text-sm md:text-base 2xl:text-lg font-semibold mb-0.5 sm:mb-1">Contact Us:</p>
+              <a href={`mailto:hello@${siteName.toLowerCase().replace(/\s+/g, '')}.com`} className="text-primary hover:underline text-xs sm:text-sm md:text-base 2xl:text-lg">
+                hello@{siteName.toLowerCase().replace(/\s+/g, '')}.com
               </a>
             </div>
 
-            <div className="flex space-x-3">
+            <div className="flex space-x-2 sm:space-x-3 2xl:space-x-4">
               {socialLinks.map((social) => (
                 <Link key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
                   <Button 
                     variant="default" 
                     size="icon" 
-                    className="bg-primary hover:bg-primary/80 text-primary-foreground rounded-full w-12 h-12 sm:w-14 sm:h-14"
+                    className="bg-primary hover:bg-primary/80 text-primary-foreground rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 2xl:w-16 2xl:h-16 3xl:w-18 3xl:h-18"
                   >
-                    <social.icon className="h-7 w-7 sm:h-8 sm:w-8" />
+                    <social.icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 2xl:h-8 2xl:w-8 3xl:h-9 3xl:w-9" />
                   </Button>
                 </Link>
               ))}
@@ -120,13 +120,13 @@ export default function Footer() {
 
           
           <div className="md:col-span-5 lg:col-span-4"> 
-            <h4 className="text-xs sm:text-sm font-semibold uppercase text-muted-foreground mb-4 tracking-wider">Sitemap</h4>
-            <ul className="space-y-2 sm:space-y-3">
+            <h4 className="text-xs sm:text-sm 2xl:text-base font-semibold uppercase text-muted-foreground mb-3 sm:mb-4 2xl:mb-5 tracking-wider">Sitemap</h4>
+            <ul className="space-y-1.5 sm:space-y-2 2xl:space-y-3">
               {sitemapLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-primary hover:text-primary/80 transition-colors duration-150 flex justify-between items-center group text-sm sm:text-base py-1">
+                  <Link href={link.href} className="text-primary hover:text-primary/80 transition-colors duration-150 flex justify-between items-center group text-xs sm:text-sm md:text-base 2xl:text-lg 3xl:text-xl py-0.5 sm:py-1 2xl:py-1.5">
                     <span>{link.label}</span>
-                    <ArrowUpRight className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
+                    <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 2xl:h-5 2xl:w-5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
                   </Link>
                 </li>
               ))}
@@ -135,8 +135,8 @@ export default function Footer() {
         </div>
 
         
-        <div className="mt-12 sm:mt-16 pt-8 border-t border-border/40 text-center">
-          <p className="text-xs sm:text-sm text-muted-foreground">
+        <div className="mt-10 sm:mt-12 md:mt-16 2xl:mt-20 pt-6 sm:pt-8 2xl:pt-10 border-t border-border/40 text-center">
+          <p className="text-xs sm:text-sm md:text-base 2xl:text-base text-muted-foreground">
             &copy; {currentYear} {siteName}. All rights reserved.
           </p>
         </div>

@@ -77,11 +77,11 @@ const StatItem = ({
   });
 
   return (
-    <div ref={itemRef} className="flex flex-col items-center text-center p-4">
-      <span className={cn("text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-2", colorClass)}>
+    <div ref={itemRef} className="flex flex-col items-center text-center p-4 2xl:p-6">
+      <span className={cn("text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl 3xl:text-9xl font-extrabold mb-2 2xl:mb-3", colorClass)}>
         {displayValueFormatted}{suffix}
       </span>
-      <span className="text-xs sm:text-sm md:text-base text-muted-foreground uppercase tracking-wider">{label}</span>
+      <span className="text-xs sm:text-sm md:text-base 2xl:text-lg 3xl:text-xl text-muted-foreground uppercase tracking-wider">{label}</span>
     </div>
   );
 };
@@ -90,13 +90,13 @@ const AnimatedStatsSection = ({ stats, backgroundText = "STATS" }) => {
   const themeColorClasses = ['text-accent', 'text-primary', 'text-chart-3', 'text-chart-4', 'text-chart-5'];
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 relative overflow-hidden">
+    <section className="py-12 sm:py-16 md:py-24 2xl:py-28 3xl:py-32 relative overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center -z-10 pointer-events-none select-none" aria-hidden="true">
-        <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-extrabold text-foreground/5 dark:text-foreground/10 opacity-50 leading-none tracking-tighter whitespace-nowrap">
+        <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] 3xl:text-[14rem] font-extrabold text-foreground/5 dark:text-foreground/10 opacity-50 leading-none tracking-tighter whitespace-nowrap">
           {backgroundText}
         </h2>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 2xl:gap-10">
         {stats.map((stat, index) => (
           <StatItem
             key={stat.label}

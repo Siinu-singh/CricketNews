@@ -1,115 +1,158 @@
 
 "use client";
 
-import { useState, useEffect } from 'react';
-// import type { Player } from '@/types'; // Type import removed
+import { useState, useEffect, useCallback } from 'react';
 import PlayerCarouselCard from './player-carousel-card';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-// interface PlayersCarouselProps { // Interface removed
-//   players: Player[];
-// }
+const SWIPE_THRESHOLD = 50; // Minimum pixels for a swipe to be registered
 
-export default function PlayersCarousel({ players }) { // Type annotation removed
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMounted, setIsMounted] = useState(false);
+export default function PlayersCarousel({ players }) {
+  const initialIndex = players && players.length > 0 ? Math.floor(players.length / 2) : 0;
+  const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
 
+  // It's generally good practice to ensure currentIndex is valid if players array changes
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
+    if (players && players.length > 0) {
+      setCurrentIndex(current => Math.min(Math.max(0, current), players.length - 1));
+    } else {
+      setCurrentIndex(0);
+    }
+  }, [players]);
 
-  if (!isMounted || !players || players.length === 0) {
+  const goToPrevious = useCallback(() => {
+    if (!players || players.length === 0) return;
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? players.length - 1 : prevIndex - 1
+    );
+  }, [players?.length]);
+
+  const goToNext = useCallback(() => {
+    if (!players || players.length === 0) return;
+    setCurrentIndex((prevIndex) =>
+      prevIndex === players.length - 1 ? 0 : prevIndex + 1
+    );
+  }, [players?.length]);
+
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+    setTouchEndX(null); // Reset touchEndX on new touch start
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX || !touchEndX) {
+      return;
+    }
+    const distance = touchStartX - touchEndX;
+    const isLeftSwipe = distance > SWIPE_THRESHOLD;
+    const isRightSwipe = distance < -SWIPE_THRESHOLD;
+
+    if (isLeftSwipe) {
+      goToNext();
+    } else if (isRightSwipe) {
+      goToPrevious();
+    }
+
+    // Reset touch coordinates
+    setTouchStartX(null);
+    setTouchEndX(null);
+  };
+
+
+  if (!players || players.length === 0) {
     return (
-      <div className="flex items-center justify-center h-[450px]">
-        <p className="text-muted-foreground">No players to display.</p>
+      <div className="flex items-center justify-center h-[360px] sm:h-[450px] 2xl:h-[520px] 3xl:h-[600px]">
+        <p className="text-muted-foreground text-sm sm:text-base 2xl:text-lg 3xl:text-xl">No players to display.</p>
       </div>
     );
   }
 
-  const goToPrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? players.length - 1 : prevIndex - 1
-    );
-  };
-
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === players.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const getCardStyle = (index) => { // Type annotation removed
+  const getCardStyle = (index) => {
     const offset = index - currentIndex;
     const total = players.length;
 
     let adjustedOffset = offset;
-    if (total > 1) { // Avoid division by zero or useless work for 1 item
-        // This handles wrapping around (e.g. if current is 0, last card is -1 for prev, or first card is +1 for next if current is last)
+    if (total > 1) {
         if (Math.abs(offset) > total / 2) {
             adjustedOffset = (offset > 0) ? offset - total : offset + total;
         }
     }
     
-    let transform = 'translateX(0%) scale(0.6) rotateY(0deg)'; // A far-away default for cards not explicitly styled
+    const baseTranslateXActive = '0%';
+    const baseTranslateXAdjacent = '50%';
+    const baseTranslateXFurther = '80%';
+    const baseTranslateXOffscreen = '120%';
+
+    const adjacentTranslateX = baseTranslateXAdjacent;
+    const furtherTranslateX = baseTranslateXFurther;
+    const offscreenTranslateX = baseTranslateXOffscreen;
+
+
+    let transform = `translateX(${offscreenTranslateX}) scale(0.6) rotateY(-60deg)`;
     let opacity = 0;
     let zIndex = 0;
-    let display = 'none'; // Default to hidden
+    let display = 'none';
+
+    if (adjustedOffset > 0) {
+         transform = `translateX(${offscreenTranslateX}) scale(0.6) rotateY(-60deg)`;
+    } else if (adjustedOffset < 0) {
+         transform = `translateX(-${offscreenTranslateX}) scale(0.6) rotateY(60deg)`;
+    }
+
 
     if (total === 1) {
-        // Only the active card is shown
         if (adjustedOffset === 0) {
-            transform = 'translateX(0%) scale(1)'; opacity = 1; zIndex = 20; display = 'block';
+            transform = `translateX(${baseTranslateXActive}) scale(1)`; opacity = 1; zIndex = 20; display = 'block';
         }
     } else if (total === 2) {
-        // Active and one other card in a specific side-by-side layout
-        if (adjustedOffset === 0) { // Active
-            transform = 'translateX(-25%) scale(0.9)'; opacity = 1; zIndex = 20; display = 'block';
-        } else { // The other card (adjustedOffset will be 1 or -1 for the other item)
-            transform = 'translateX(25%) scale(0.9)'; opacity = 0.8; zIndex = 10; display = 'block';
+        if (adjustedOffset === 0) {
+            transform = `translateX(-20%) scale(0.9)`; opacity = 1; zIndex = 20; display = 'block';
+        } else {
+            transform = `translateX(20%) scale(0.9)`; opacity = 0.8; zIndex = 10; display = 'block';
         }
-    } else { // General case for 3 or more players
+    } else {
         switch (adjustedOffset) {
-            case 0: // Active card
-                transform = 'translateX(0%) scale(1)';
+            case 0:
+                transform = `translateX(${baseTranslateXActive}) scale(1)`;
                 opacity = 1;
                 zIndex = 20;
                 display = 'block';
                 break;
-            case 1: // Immediate Next card
-                transform = 'translateX(60%) scale(0.85) rotateY(-30deg)';
+            case 1:
+                transform = `translateX(${adjacentTranslateX}) scale(0.85) rotateY(-25deg)`;
                 opacity = 0.7;
                 zIndex = 10;
                 display = 'block';
                 break;
-            case -1: // Immediate Previous card
-                transform = 'translateX(-60%) scale(0.85) rotateY(30deg)';
+            case -1:
+                transform = `translateX(-${adjacentTranslateX}) scale(0.85) rotateY(25deg)`;
                 opacity = 0.7;
                 zIndex = 10;
                 display = 'block';
                 break;
-            case 2: // Second Next card
-                if (total >= 4) { 
-                    transform = 'translateX(100%) scale(0.70) rotateY(-45deg)';
+            case 2:
+                if (total >= 4) {
+                    transform = `translateX(${furtherTranslateX}) scale(0.70) rotateY(-40deg)`;
                     opacity = 0.4;
                     zIndex = 5;
                     display = 'block';
                 }
                 break;
-            case -2: // Second Previous card
-                if (total >= 4) { 
-                    transform = 'translateX(-100%) scale(0.70) rotateY(45deg)';
+            case -2:
+                if (total >= 4) {
+                    transform = `translateX(-${furtherTranslateX}) scale(0.70) rotateY(40deg)`;
                     opacity = 0.4;
                     zIndex = 5;
                     display = 'block';
-                }
-                break;
-            default:
-                if (adjustedOffset < -2) {
-                    transform = `translateX(-150%) scale(0.6) rotateY(60deg)`;
-                } else { 
-                    transform = `translateX(150%) scale(0.6) rotateY(-60deg)`;
                 }
                 break;
         }
@@ -120,8 +163,13 @@ export default function PlayersCarousel({ players }) { // Type annotation remove
 
 
   return (
-    <div className="relative w-full flex flex-col items-center justify-center py-8 md:py-12">
-      <div className="relative h-[450px] sm:h-[390px] md:h-[450px] w-full max-w-4xl flex items-center justify-center perspective-[1500px] overflow-hidden">
+    <div className="relative w-full flex flex-col items-center justify-center py-6 sm:py-8 md:py-12 2xl:py-16">
+      <div
+        className="relative h-[360px] sm:h-[390px] md:h-[450px] lg:h-[480px] 2xl:h-[560px] 3xl:h-[630px] w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-5xl 2xl:max-w-6xl 3xl:max-w-7xl flex items-center justify-center perspective-[1000px] sm:perspective-[1200px] md:perspective-[1500px] 2xl:perspective-[2000px] overflow-hidden px-2"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {players.map((player, index) => (
           <div
             key={player.id}
@@ -134,24 +182,24 @@ export default function PlayersCarousel({ players }) { // Type annotation remove
       </div>
 
       {players.length > 1 && (
-        <div className="mt-8 flex gap-4">
+        <div className="hidden md:flex mt-6 sm:mt-8 2xl:mt-12 3xl:mt-16 gap-3 sm:gap-4 2xl:gap-6">
           <Button
             variant="outline"
             size="icon"
             onClick={goToPrevious}
-            className="rounded-full w-12 h-12 bg-card/70 hover:bg-card/90 backdrop-blur-sm border-border text-foreground shadow-md"
+            className="rounded-full w-10 h-10 sm:w-12 sm:h-12 2xl:w-14 2xl:h-14 3xl:w-16 3xl:h-16 bg-card/70 hover:bg-card/90 backdrop-blur-sm border-border text-foreground shadow-md"
             aria-label="Previous player"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft className="h-5 w-5 sm:h-6 2xl:h-7 3xl:h-8" />
           </Button>
           <Button
             variant="outline"
             size="icon"
             onClick={goToNext}
-            className="rounded-full w-12 h-12 bg-card/70 hover:bg-card/90 backdrop-blur-sm border-border text-foreground shadow-md"
+            className="rounded-full w-10 h-10 sm:w-12 sm:h-12 2xl:w-14 2xl:h-14 3xl:w-16 3xl:h-16 bg-card/70 hover:bg-card/90 backdrop-blur-sm border-border text-foreground shadow-md"
             aria-label="Next player"
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight className="h-5 w-5 sm:h-6 2xl:h-7 3xl:h-8" />
           </Button>
         </div>
       )}

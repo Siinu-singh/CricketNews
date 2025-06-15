@@ -9,7 +9,7 @@ export default function ParallaxHero({
   children,
   className,
   overlayOpacity = 0.5,
-  minHeight = '60vh',
+  minHeight = '60vh', // Default, can be overridden by responsive classes in `className`
   ...props
 }) {
   const [scale, setScale] = useState(1);
@@ -48,7 +48,7 @@ export default function ParallaxHero({
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []); // Changed dependency from [minHeight] to []
+  }, []); 
 
   const overlayStyle = {
     backgroundColor: `rgba(0, 0, 0, ${Math.max(0, Math.min(1, overlayOpacity))})`,
@@ -59,10 +59,10 @@ export default function ParallaxHero({
       ref={heroRef}
       className={cn(
         'relative w-full flex items-center justify-center text-center text-foreground overflow-hidden',
-        className
+        className // className can now include responsive minHeight like 2xl:min-h-[70vh]
       )}
       style={{
-        minHeight: minHeight
+        minHeight: !className?.includes('min-h-') ? minHeight : undefined // Apply default minHeight only if not specified in className
       }}
       {...props}
     >
@@ -76,7 +76,7 @@ export default function ParallaxHero({
       />
       <div className="absolute inset-0" style={overlayStyle}></div>
       {/* Removed p-4 sm:p-8 from this div to let children control their padding */}
-      <div className="relative z-10"> 
+      <div className="relative z-10 w-full"> 
         {children}
       </div>
     </div>

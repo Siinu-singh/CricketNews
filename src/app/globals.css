@@ -11,78 +11,91 @@
     --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%; /* White */
     --popover-foreground: 0 0% 10%;
-    --primary: 98 47% 49%; /* Green #65B741 */
+    
+    --primary: 150 70% 35%; /* Dark Green (was original secondary) */
     --primary-foreground: 0 0% 100%; /* White for text on primary */
-    --secondary: 103 71% 82%; /* Light Green #C1F2B0 */
-    --secondary-foreground: 98 35% 25%; /* Dark Green for text on secondary */
+    
+    --secondary: 150 60% 55%; /* Lighter shade of primary green */
+    --secondary-foreground: 0 0% 10%; /* Dark text for secondary */
+    
     --muted: 0 0% 96%; /* Light Gray #F5F5F5 */
     --muted-foreground: 0 0% 40%; /* Darker Gray #666666 */
-    --accent: 36 100% 60%; /* Yellow/Orange #FFB534 */
-    --accent-foreground: 36 100% 20%; /* Dark Orange for text on accent */
+    
+    --accent: 84 76% 49%; /* Bright Yellow-Green (was original accent) */
+    --accent-foreground: 84 76% 15%; /* Darker Yellow-Green for text on accent (from original) */
+    
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 90%; /* Light Gray #E5E5E5 */
     --input: 0 0% 90%;
-    --ring: 36 100% 60%; /* Accent #FFB534 for rings */
+    --ring: 84 76% 49%; /* Accent #9ACD32 for rings (from original accent) */
     --radius: 0.5rem;
 
-    --chart-1: 36 100% 60%; /* Accent */
-    --chart-2: 98 47% 49%; /* Primary */
-    --chart-3: 103 71% 70%; /* Mid-tone Light Green */
-    --chart-4: 36 80% 70%;  /* Lighter Accent */
-    --chart-5: 98 40% 60%;  /* Lighter Primary */
+    --chart-1: 150 70% 35%; /* New Primary Green */
+    --chart-2: 84 76% 49%;  /* New Accent Green */
+    --chart-3: 150 50% 45%; /* Mid-tone of Primary */
+    --chart-4: 84 60% 60%;  /* Lighter Accent */
+    --chart-5: 150 60% 65%;  /* Lighter Primary */
 
     --sidebar-background: 0 0% 98%; /* Very Light Gray #FAFAFA */
     --sidebar-foreground: 0 0% 10%;
-    --sidebar-primary: 98 47% 49%;
+    --sidebar-primary: 150 70% 35%; /* New Primary Green */
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 92%; /* Light Gray hover #EDEDED */
-    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-accent: 150 70% 92%; /* Light green tint for hover */
+    --sidebar-accent-foreground: 150 70% 25%; /* Darker green for text on light green hover */
     --sidebar-border: 0 0% 88%; /* Light Gray #E0E0E0 */
-    --sidebar-ring: 36 100% 60%;
+    --sidebar-ring: 84 76% 49%; /* New Accent for rings */
   }
 
   .dark {
-    --background: 98 20% 10%; /* Very Dark Desaturated Green */
-    --foreground: 103 50% 90%; /* Light Greenish for text */
-    --card: 98 20% 14%;
-    --card-foreground: 103 50% 90%;
-    --popover: 98 20% 8%;
-    --popover-foreground: 103 50% 90%;
-    --primary: 98 47% 49%; /* #65B741 */
-    --primary-foreground: 43 67% 96%; /* #FBF6EE */
-    --secondary: 103 71% 35%; /* Darker #C1F2B0 */
-    --secondary-foreground: 103 50% 90%;
-    --muted: 98 15% 20%;
-    --muted-foreground: 103 30% 70%;
-    --accent: 36 100% 60%; /* #FFB534 */
-    --accent-foreground: 36 100% 20%; /* Dark Orange for text on accent */
-    --destructive: 0 70% 50%;
+    --background: 150 20% 8%; /* Very Dark Greenish-Gray */
+    --foreground: 150 30% 85%; /* Light Greenish Gray for text */
+    --card: 150 15% 12%; /* Darker Greenish-Gray for cards */
+    --card-foreground: 150 30% 85%;
+    --popover: 150 15% 10%; /* Darker Greenish-Gray for popovers */
+    --popover-foreground: 150 30% 85%;
+
+    --primary: 150 60% 45%; /* Lighter Dark Green for dark mode primary */
+    --primary-foreground: 0 0% 100%; 
+    
+    --secondary: 150 50% 60%; /* Lighter shade of new dark primary green */
+    --secondary-foreground: 0 0% 10%;
+    
+    --muted: 150 15% 15%; /* Darker greenish muted */
+    --muted-foreground: 150 25% 65%;
+    
+    --accent: 84 70% 55%; /* Slightly brighter Yellow-Green for dark mode accent */
+    --accent-foreground: 84 70% 10%; 
+    
+    --destructive: 0 60% 50%;
     --destructive-foreground: 0 0% 98%;
-    --border: 98 15% 25%;
-    --input: 98 15% 25%;
-    --ring: 36 100% 60%; /* Accent for rings */
+    --border: 150 15% 20%; /* Dark greenish border */
+    --input: 150 15% 20%;
+    --ring: 84 70% 55%; /* Dark mode Accent for rings */
 
-    --chart-1: 36 100% 60%;
-    --chart-2: 98 47% 49%;
-    --chart-3: 103 71% 70%;
-    --chart-4: 36 80% 70%;
-    --chart-5: 98 40% 60%;
+    --chart-1: 150 60% 45%; /* Dark Primary */
+    --chart-2: 84 70% 55%;  /* Dark Accent */
+    --chart-3: 150 50% 55%; /* Mid-tone Dark Primary */
+    --chart-4: 84 50% 65%;  /* Lighter Dark Accent */
+    --chart-5: 150 40% 65%;  /* Lighter Dark Primary */
 
-    --sidebar-background: 98 20% 8%; /* Darker than main dark bg */
-    --sidebar-foreground: 103 50% 90%;
-    --sidebar-primary: 98 47% 49%;
-    --sidebar-primary-foreground: 43 67% 96%;
-    --sidebar-accent: 98 15% 22%; /* Subtle dark hover */
-    --sidebar-accent-foreground: 103 50% 90%;
-    --sidebar-border: 98 15% 20%;
-    --sidebar-ring: 36 100% 60%;
+    --sidebar-background: 150 20% 6%; /* Darker than main dark bg */
+    --sidebar-foreground: 150 30% 85%;
+    --sidebar-primary: 150 60% 45%; /* Dark Primary */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 20% 18%; /* Subtle dark green hover */
+    --sidebar-accent-foreground: 150 30% 85%;
+    --sidebar-border: 150 20% 15%;
+    --sidebar-ring: 84 70% 55%; /* Dark Accent */
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+  }
+  html {
+    @apply scroll-smooth;
   }
   body {
     @apply bg-background text-foreground;
@@ -131,4 +144,30 @@
       transform: translateX(-50%); /* Assumes content is duplicated once */
     }
   }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+
+  .text-glow-primary {
+    text-shadow: 0 0 5px hsl(var(--primary) / 0.7), 0 0 10px hsl(var(--primary) / 0.5), 0 0 15px hsl(var(--primary) / 0.3);
+  }
+  .text-glow-accent {
+     text-shadow: 0 0 6px hsl(var(--accent) / 0.8), 0 0 12px hsl(var(--accent) / 0.6), 0 0 20px hsl(var(--accent) / 0.4);
+  }
+  .text-glow-team-accent { /* For team carousel card specific glow if needed */
+    text-shadow: 0 0 8px hsl(var(--team-accent-color, var(--accent)) / 0.7), 0 0 15px hsl(var(--team-accent-color, var(--accent)) / 0.5);
+  }
+  
 }
