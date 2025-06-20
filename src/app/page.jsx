@@ -4,7 +4,9 @@ import ParallaxHero from '@/components/common/parallax-hero';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ArrowRight, LayoutList, Shield, BotMessageSquare, Zap, Users, MessageCircleQuestion, MailCheck, Quote, Star, Bell, Globe, Shuffle, Users2, Languages, Smartphone, MousePointerClick } from 'lucide-react';
-import { mockMatches, mockPlayers, mockTestimonials } from '@/lib/mock-data.js';
+import mockMatches from '@/data/matches.json';
+import mockPlayers from '@/data/players.json';
+import mockTestimonials from '@/data/testimonials.json';
 import Image from 'next/image';
 import PlayersCarousel from '@/components/players/players-carousel';
 import AnimatedStatsSection from '@/components/common/animated-stats-section';
@@ -361,4 +363,4 @@ export default function HomePage() {
   );
 }
 
-
+    

@@ -1,6 +1,6 @@
 
 import ParallaxHero from "@/components/common/parallax-hero";
-import { mockTeams } from "@/lib/mock-data.js";
+import mockTeams from "@/data/teams.json";
 import AdvancedTeamCarousel from "@/components/teams/advanced-team-carousel";
 import TeamGridCard from "@/components/teams/team-grid-card"; 
 import { Separator } from "@/components/ui/separator";
@@ -89,3 +89,5 @@ export default function TeamsPage() {
     </div>
   );
 }
+
+    

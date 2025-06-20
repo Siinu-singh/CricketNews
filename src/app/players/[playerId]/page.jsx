@@ -1,5 +1,5 @@
 
-import { mockPlayers } from "@/lib/mock-data";
+import mockPlayers from '@/data/players.json';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
@@ -122,3 +122,5 @@ function StatItem({ label, value, icon }) {
     </div>
   );
 }
+
+    

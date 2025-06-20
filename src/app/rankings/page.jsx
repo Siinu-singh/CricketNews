@@ -3,6 +3,7 @@ import ParallaxHero from "@/components/common/parallax-hero";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { User, Users, Shield, BarChartHorizontalBig, TrendingUp } from "lucide-react";
+import rankingsData from '@/data/rankings.json';
 
 export const metadata = {
   title: 'Cricket Rankings - Official ICC Player & Team Standings | CricketNews',
@@ -31,47 +32,7 @@ export const metadata = {
   },
 };
 
-const mockPlayerRankings = {
-  testBatsmen: [
-    { rank: 1, name: "Kane Williamson", team: "NZ", points: 919 },
-    { rank: 2, name: "Joe Root", team: "ENG", points: 897 },
-    { rank: 3, name: "Steve Smith", team: "AUS", points: 877 },
-    { rank: 4, name: "Marnus Labuschagne", team: "AUS", points: 870 },
-    { rank: 5, name: "Babar Azam", team: "PAK", points: 860 },
-  ],
-  odiBowlers: [
-    { rank: 1, name: "Trent Boult", team: "NZ", points: 737 },
-    { rank: 2, name: "Josh Hazlewood", team: "AUS", points: 709 },
-    { rank: 3, name: "Jasprit Bumrah", team: "IND", points: 704 },
-    { rank: 4, name: "Shaheen Afridi", team: "PAK", points: 690 },
-    { rank: 5, name: "Mitchell Starc", team: "AUS", points: 685 },
-  ],
-  t20iAllRounders: [
-    { rank: 1, name: "Shakib Al Hasan", team: "BAN", points: 380 },
-    { rank: 2, name: "Mohammad Nabi", team: "AFG", points: 340 },
-    { rank: 3, name: "Hardik Pandya", team: "IND", points: 320 },
-    { rank: 4, name: "Wanindu Hasaranga", team: "SL", points: 310 },
-    { rank: 5, name: "Glenn Maxwell", team: "AUS", points: 300 },
-  ],
-};
-
-const mockTeamRankings = {
-  test: [
-    { rank: 1, name: "Australia", points: 128 },
-    { rank: 2, name: "India", points: 121 },
-    { rank: 3, name: "England", points: 115 },
-  ],
-  odi: [
-    { rank: 1, name: "New Zealand", points: 125 },
-    { rank: 2, name: "England", points: 124 },
-    { rank: 3, name: "Australia", points: 120 },
-  ],
-  t20i: [
-    { rank: 1, name: "India", points: 268 },
-    { rank: 2, name: "England", points: 265 },
-    { rank: 3, name: "Pakistan", points: 261 },
-  ],
-};
+const { playerRankings: mockPlayerRankings, teamRankings: mockTeamRankings } = rankingsData;
 
 export default function RankingsPage() {
   return (
@@ -151,3 +112,5 @@ function RankingCard({ title, data, isTeamRanking = false, icon }) {
     </Card>
   );
 }
+
+    

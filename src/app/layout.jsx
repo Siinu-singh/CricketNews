@@ -25,6 +25,9 @@ export const metadata = {
   },
   description: 'Your ultimate destination for live cricket scores, match schedules, team information, player profiles, and AI-powered news summaries on CricketNews.',
   keywords: ['cricket', 'live scores', 'cricket news', 'matches', 'teams', 'players', 'cricketnews'],
+  icons: {
+    icon: '/favicon.ico', // Assumes src/app/favicon.ico will be created by the user
+  },
   openGraph: {
     title: 'CricketNews - Live Scores, Matches, Teams & News',
     description: 'Your ultimate destination for live cricket scores, match schedules, team information, player profiles, and AI-powered news summaries on CricketNews.',

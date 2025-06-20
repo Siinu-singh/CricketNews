@@ -3,7 +3,7 @@ import NewsSummaryForm from "@/components/news/news-summary-form";
 import ParallaxHero from "@/components/common/parallax-hero";
 import { BotMessageSquare, Info, Newspaper } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { mockNewsHeadlines } from '@/lib/mock-data.js';
+import mockNewsHeadlines from '@/data/news.json';
 import NewsHeadlineCard from "@/components/news/news-headline-card";
 import AbstractBackground from '@/components/common/AbstractBackground';
 
@@ -110,3 +110,5 @@ export default function NewsSummaryPage() {
     </div>
   );
 }
+
+    

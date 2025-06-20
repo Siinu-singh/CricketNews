@@ -1,7 +1,7 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import MatchCard from "@/components/matches/match-card";
-import { mockMatches } from "@/lib/mock-data";
+import mockMatches from '@/data/matches.json';
 import ParallaxHero from "@/components/common/parallax-hero";
 
 export const metadata = {
@@ -99,3 +99,5 @@ export default function MatchesPage() {
     </div>
   );
 }
+
+    

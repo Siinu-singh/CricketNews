@@ -1,5 +1,5 @@
 
-import { mockNewsHeadlines } from "@/lib/mock-data";
+import mockNewsHeadlines from '@/data/news.json';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import ParallaxHero from "@/components/common/parallax-hero";
@@ -125,3 +125,5 @@ export default function NewsArticlePage({ params }) {
     </div>
   );
 }
+
+    

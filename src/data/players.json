@@ -1,0 +1,61 @@
+
+[
+  {
+    "id": "player1",
+    "name": "Virat Kohli",
+    "photoUrl": "https://media.gettyimages.com/id/2200264212/photo/dubai-united-arab-emirates-virat-kohli-of-india-poses-for-a-portrait-during-the-icc-champions.jpg?s=612x612&w=0&k=20&c=00gfEvDRZZMmIEtiL36hFmCDk8goSRaJto-wzohYm1g=",
+    "dataAiHint": "Virat Kohli portrait",
+    "role": "Batsman",
+    "nationality": "Indian",
+    "battingStyle": "Right-handed",
+    "stats": { "matches": 250, "runs": 12000, "average": 59.07, "strikeRate": 93.01, "highestScore": "183" },
+    "bio": "One of the greatest batsmen of all time, known for his consistency and chasing abilities."
+  },
+  {
+    "id": "player2",
+    "name": "Babar Azam",
+    "photoUrl": "https://media.gettyimages.com/id/2200096995/photo/karachi-pakistan-babar-azam-of-pakistan-poses-for-a-portrait-during-the-icc-champions-trophy.jpg?s=612x612&w=0&k=20&c=HBREy3YsfQjDNS-r3lYbOWyDZlxZ-k6D1vEuX7HVIJA=",
+    "dataAiHint": "Babar Azam portrait",
+    "role": "Batsman",
+    "nationality": "Pakistani",
+    "battingStyle": "Right-handed",
+    "stats": { "matches": 100, "runs": 5000, "average": 58.50, "strikeRate": 88.70, "highestScore": "158" },
+    "bio": "A top-order batsman from Pakistan, known for his elegant strokeplay and consistency across formats."
+  },
+  {
+    "id": "player3",
+    "name": "Jasprit Bumrah",
+    "photoUrl": "https://media.gettyimages.com/id/2155145768/photo/new-york-new-york-jasprit-bumrah-of-india-poses-for-a-portrait-prior-to-the-icc-mens-t20.jpg?s=612x612&w=0&k=20&c=kNdtzUKOUxBRcy-6Y_GH38DhueWWxTVdlXXrUaomZ3c=",
+    "dataAiHint": "Jasprit Bumrah portrait",
+    "role": "Bowler",
+    "nationality": "Indian",
+    "bowlingStyle": "Right-arm fast",
+    "stats": { "matches": 150, "runs": 500, "wickets": 250, "average": 22.5, "economyRate": 4.5, "bestBowling": "6/19" },
+    "bio": "A premier fast bowler known for his unorthodox action and lethal yorkers."
+  },
+  {
+    "id": "player4",
+    "name": "Shaheen Afridi",
+    "photoUrl": "https://media.gettyimages.com/id/2200096878/photo/karachi-pakistan-shaheen-shah-afridi-of-pakistan-poses-for-a-portrait-during-the-icc.jpg?s=612x612&w=0&k=20&c=8welI3dLgp0SwyOp_RXQAe6CK755SlCUx65nKfD3m_k=",
+    "dataAiHint": "Shaheen Afridi portrait",
+    "role": "Bowler",
+    "nationality": "Pakistani",
+    "bowlingStyle": "Left-arm fast",
+    "stats": { "matches": 120, "runs": 300, "wickets": 200, "average": 24.0, "economyRate": 5.0, "bestBowling": "5/32" },
+    "bio": "A tall left-arm fast bowler, known for his ability to swing the new ball and take early wickets."
+  },
+  {
+    "id": "player5",
+    "name": "Ellyse Perry",
+    "photoUrl": "https://media.gettyimages.com/id/2175870919/photo/dubai-united-arab-emirates-ellyse-perry-of-australia-poses-for-a-portrait-prior-to-the-icc.jpg?s=612x612&w=0&k=20&c=MQzyjNaES_YY7IG9q45MozYBmjkeBbu52oFNpnC0GJY=",
+    "dataAiHint": "Ellyse Perry portrait",
+    "role": "All-rounder",
+    "nationality": "Australian",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm fast-medium",
+    "stats": { "matches": 200, "runs": 6000, "wickets": 300, "average": 50.0, "strikeRate": 80.0, "economyRate": 4.0, "highestScore": "213*", "bestBowling": "7/22" },
+    "bio": "One of the greatest female cricketers, excelling in both batting and bowling."
+  }
+]
+
+    

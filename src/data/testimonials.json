@@ -1,0 +1,60 @@
+
+[
+  {
+    "id": "testimonial1",
+    "name": "Priya Sharma",
+    "avatarUrl": "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3b21hbiUyMHNtaWxpbmd8ZW58MHx8fHwxNzQ5NDgwOTc4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "dataAiHint": "woman smiling",
+    "rating": 5,
+    "date": "July 15, 2024",
+    "source": "CricketNews App",
+    "title": "Best Cricket App Ever!",
+    "text": "CricketNews has completely changed how I follow cricket. Live scores are super fast, and the AI news summaries are a game-changer!"
+  },
+  {
+    "id": "testimonial2",
+    "name": "Raj Patel",
+    "avatarUrl": "https://images.unsplash.com/photo-1585807515950-bc46d934c28b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYW4lMjBnbGFzc2VzfGVufDB8fHx8MTc0OTU0MjE5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "dataAiHint": "man glasses",
+    "rating": 4,
+    "date": "July 10, 2024",
+    "source": "Google Play",
+    "title": "Great for Staying Updated",
+    "text": "Love the detailed player stats and team info. The interface is clean and easy to navigate. Sometimes the live scores lag a tiny bit, but overall excellent."
+  },
+  {
+    "id": "testimonial3",
+    "name": "Aisha Khan",
+    "avatarUrl": "https://images.unsplash.com/photo-1592926256627-488adc9a24f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3b21hbiUyMGhlYWRzY2FyZnxlbnwwfHx8fDE3NDk1NDIxOTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "dataAiHint": "woman headscarf",
+    "rating": 5,
+    "date": "June 28, 2024",
+    "source": "App Store",
+    "title": "Must-Have for Cricket Fans!",
+    "text": "The AI news summary feature is brilliant for quick updates. I use it daily. The parallax hero sections are also visually stunning. Highly recommend!"
+  },
+  {
+    "id": "testimonial4",
+    "name": "Michael Lee",
+    "avatarUrl": "https://images.unsplash.com/photo-1607149553615-e9d1f694c1ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYW4lMjBjYXN1YWx8ZW58MHx8fHwxNzQ5NTQyMTkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "dataAiHint": "man casual",
+    "rating": 5,
+    "date": "June 20, 2024",
+    "source": "ProductHunt",
+    "title": "Impressive Design & Features",
+    "text": "The dark blue and green theme is very professional. Player profiles are comprehensive. The animated stats on the homepage are a nice touch!"
+  },
+  {
+    "id": "testimonial5",
+    "name": "Sarah Jones",
+    "avatarUrl": "https://images.unsplash.com/photo-1542996966-2e31c00bae31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3b21hbiUyMGF0aGxldGljfGVufDB8fHx8MTc0OTU0MjE5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "dataAiHint": "woman athletic",
+    "rating": 4,
+    "date": "May 15, 2024",
+    "source": "Twitter",
+    "title": "Solid Cricket Companion",
+    "text": "Been using CricketNews for a month. The live match tracking is reliable, and the team pages are well-organized. Would love to see more historical data."
+  }
+]
+
+    

@@ -1,5 +1,6 @@
 
-import { mockTeams, mockPlayers } from "@/lib/mock-data";
+import mockTeams from "@/data/teams.json";
+import mockPlayers from "@/data/players.json";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -53,7 +54,15 @@ export default function TeamDetailPage({ params }) {
     notFound(); 
   }
 
-  const playersToList = team.players.length > 0 ? team.players : mockPlayers.slice(0, 5).map(p => ({...p, teamId: team.id}));
+  const teamPlayerIds = team.players;
+  let playersToList;
+
+  if (teamPlayerIds && teamPlayerIds.length > 0) {
+    playersToList = mockPlayers.filter(p => teamPlayerIds.includes(p.id));
+  } else {
+    // Fallback for teams without explicit players in teams.json
+    playersToList = mockPlayers.slice(0, 5);
+  }
 
   return (
     <div className="space-y-6 md:space-y-10 2xl:space-y-14 3xl:space-y-16">
@@ -118,3 +127,5 @@ export default function TeamDetailPage({ params }) {
     </div>
   );
 }
+
+    
